@@ -1,0 +1,6 @@
+# 基础依赖
+PyQt5>=5.15.0
+requests>=2.25.0
+psycopg2-binary>=2.9.0
+feedparser>=6.0.10
+beautifulsoup4>=4.12.0
