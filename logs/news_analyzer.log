@@ -7852,3 +7852,883 @@ AttributeError: 'LLMClient' object has no attribute 'api_key'
 2025-11-27 10:44:13,943 - news_analyzer.ui.main_window - INFO - 筛选分类 '国际组织' 找到 13 条新闻
 2025-11-27 10:44:20,743 - news_analyzer.ui.main_window - INFO - 搜索 'events' 找到 10 条结果
 2025-11-27 10:44:37,217 - news_analyzer.ui.main_window - INFO - 应用程序关闭
+2025-11-27 11:13:20,423 - news_analyzer - INFO - 新闻聚合与分析系统启动
+2025-11-27 11:13:20,598 - news_analyzer.storage - INFO - 已连接 PostgreSQL 数据库 database，使用批次方式存储新闻
+2025-11-27 11:13:20,598 - news_analyzer.collectors.rss - INFO - 添加RSS源: 澎湃新闻 (https://www.thepaper.cn/rss_newslist.jsp), 分类: 综合新闻
+2025-11-27 11:13:20,598 - news_analyzer.collectors.rss - INFO - 添加RSS源: 路透中文网 (https://rsshub.rssforever.com/reuters/cn/china), 分类: 综合新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 联合早报 (https://www.zaobao.com/rss/realtime/china), 分类: 综合新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: FT中文网 (https://www.ftchinese.com/rss/feed), 分类: 综合新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报国际 (https://rss.nytimes.com/services/xml/rss/nyt/World.xml), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华盛顿邮报国际 (https://feeds.washingtonpost.com/rss/world), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报国际 (https://www.theguardian.com/world/rss), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 半岛电视台 (https://www.aljazeera.com/xml/rss/all.xml), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC国际 (https://feeds.bbci.co.uk/news/world/rss.xml), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNN国际 (http://rss.cnn.com/rss/edition_world.rss), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: NHK国际 (https://www.nhk.or.jp/rss/news/cat6.xml), 分类: 国际新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: WIRED (https://www.wired.com/feed/rss), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: Engadget (https://www.engadget.com/rss.xml), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Verge (https://www.theverge.com/rss/index.xml), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: TechCrunch (https://techcrunch.com/feed/), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: Ars Technica (https://feeds.arstechnica.com/arstechnica/index), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: Solidot (https://www.solidot.org/index.rss), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪 (https://rsshub.rssforever.com/36kr/news/latest), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 少数派 (https://sspai.com/feed), 分类: 科技新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 经济学人 (https://www.economist.com/finance-and-economics/rss.xml), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华尔街日报市场 (https://feeds.a.dj.com/rss/RSSMarketsMain.xml), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 金融时报 (https://www.ft.com/rss/home/uk), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 福布斯商业 (https://www.forbes.com/business/feed/), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 商业内幕 (https://www.businessinsider.com/rss), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNBC财经 (https://www.cnbc.com/id/10001147/device/rss/rss.html), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: 财新网 (https://rsshub.app/caixin/finance/regulation), 分类: 商业与金融
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: Politico (https://rss.politico.com/politics.xml), 分类: 政治新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: RealClearPolitics (https://www.realclearpolitics.com/index.xml), 分类: 政治新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Hill (https://thehill.com/feed), 分类: 政治新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: NBC政治 (https://feeds.nbcnews.com/nbcnews/public/politics), 分类: 政治新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC政治 (https://feeds.bbci.co.uk/news/politics/rss.xml), 分类: 政治新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: Science (https://www.science.org/rss/news_current.xml), 分类: 科学新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: Nature (https://www.nature.com/nature.rss), 分类: 科学新闻
+2025-11-27 11:13:20,599 - news_analyzer.collectors.rss - INFO - 添加RSS源: New Scientist (https://feeds.newscientist.com/science-news), 分类: 科学新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Phys.org (https://phys.org/rss-feed/), 分类: 科学新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Scientific American (https://www.scientificamerican.com/feed/), 分类: 科学新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Space.com (https://www.space.com/feeds/all), 分类: 科学新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: ESPN (https://www.espn.com/espn/rss/news), 分类: 体育新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Sky Sports (https://www.skysports.com/rss/12040), 分类: 体育新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报体育 (http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml), 分类: 体育新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Fox Sports (https://api.foxsports.com/v1/rss?partnerKey=zBaFxRyGKCfxBagJG9b8pqLyndmvo7UU), 分类: 体育新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: CBS Sports (https://www.cbssports.com/rss/headlines), 分类: 体育新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报体育 (https://www.theguardian.com/sport/rss), 分类: 体育新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: 好莱坞记者 (https://www.hollywoodreporter.com/feed/), 分类: 娱乐新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Variety (https://variety.com/feed/), 分类: 娱乐新闻
+2025-11-27 11:13:20,600 - news_analyzer.collectors.rss - INFO - 添加RSS源: Google 新闻 - AI (https://news.google.com/rss/search?q=AI&hl=zh-CN&gl=CN), 分类: 聚合新闻
+2025-11-27 11:13:20,600 - news_analyzer - INFO - 已初始化 46 个预设新闻源
+2025-11-27 11:13:20,868 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:13:21,017 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:13:21,230 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:13:21,235 - news_analyzer.ui.history_panel - INFO - 历史新闻目录: /Users/tonglion/PycharmProjects/news_analyzer-main/news_analyzer/ui/../../data/news
+2025-11-27 11:13:21,374 - news_analyzer.ui.main_window - INFO - 同步了 10 个分类到侧边栏
+2025-11-27 11:13:21,389 - news_analyzer.storage - INFO - 从批次 news_20251127_104222.json 加载了 13 条新闻
+2025-11-27 11:13:21,390 - news_analyzer.ui.main_window - INFO - 启动加载历史新闻 13 条
+2025-11-27 11:13:21,390 - news_analyzer.ui.main_window - INFO - 主窗口已初始化
+2025-11-27 11:13:25,391 - news_analyzer.ui.main_window - INFO - 筛选分类 '商业与金融' 找到 3 条新闻
+2025-11-27 11:13:26,334 - news_analyzer.ui.main_window - INFO - 筛选分类 '娱乐新闻' 找到 0 条新闻
+2025-11-27 11:13:30,970 - news_analyzer.collectors.rss - WARNING - 澎湃新闻 返回非RSS内容（Content-Type: text/html; charset=utf-8），已跳过解析
+2025-11-27 11:13:30,970 - news_analyzer.collectors.rss - INFO - 从 澎湃新闻 获取了 0 条新闻
+2025-11-27 11:13:36,865 - news_analyzer.collectors.rss - ERROR - 获取 路透中文网 的新闻失败: 503 Server Error: Service Unavailable for url: https://rsshub.rssforever.com/reuters/cn/china
+2025-11-27 11:13:36,866 - news_analyzer.collectors.rss - INFO - 从 路透中文网 获取了 0 条新闻
+2025-11-27 11:13:37,669 - news_analyzer.collectors.rss - WARNING - 联合早报 返回非RSS内容（Content-Type: text/html），已跳过解析
+2025-11-27 11:13:37,670 - news_analyzer.collectors.rss - INFO - 从 联合早报 获取了 0 条新闻
+2025-11-27 11:13:42,901 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 20 条新闻
+2025-11-27 11:13:42,902 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 20 条新闻
+2025-11-27 11:13:44,796 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 11:13:44,796 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 11:13:57,109 - news_analyzer.collectors.rss - ERROR - 获取 华盛顿邮报国际 的新闻失败: HTTPSConnectionPool(host='feeds.washingtonpost.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:13:57,111 - news_analyzer.collectors.rss - INFO - 从 华盛顿邮报国际 获取了 0 条新闻
+2025-11-27 11:14:00,357 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 11:14:00,357 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 11:14:02,177 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 11:14:02,177 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 11:14:04,277 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 39 条新闻
+2025-11-27 11:14:04,278 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 39 条新闻
+2025-11-27 11:14:05,797 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 11:14:05,797 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 11:14:12,074 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 129 条新闻
+2025-11-27 11:14:12,075 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 129 条新闻
+2025-11-27 11:14:14,657 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 11:14:14,658 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 11:14:18,959 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 11:14:18,960 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 11:14:21,500 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 11:14:21,500 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 11:14:23,032 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 11:14:23,032 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 11:14:24,800 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 11:14:24,801 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 11:14:24,971 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 11:14:24,971 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 11:14:31,031 - news_analyzer.collectors.rss - INFO - 从 36氪 获取了 30 条新闻
+2025-11-27 11:14:31,031 - news_analyzer.collectors.rss - INFO - 从 36氪 获取了 30 条新闻
+2025-11-27 11:14:31,295 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 11:14:31,295 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 11:14:36,343 - news_analyzer.collectors.rss - ERROR - 获取 经济学人 的新闻失败: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+2025-11-27 11:14:36,344 - news_analyzer.collectors.rss - INFO - 从 经济学人 获取了 0 条新闻
+2025-11-27 11:14:39,039 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 11:14:39,040 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 11:14:40,949 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 12 条新闻
+2025-11-27 11:14:40,949 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 12 条新闻
+2025-11-27 11:14:42,402 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 11:14:42,403 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 11:14:46,636 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 11:14:46,636 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 11:14:48,412 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 11:14:48,412 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 11:14:59,766 - news_analyzer.collectors.rss - ERROR - 获取 财新网 的新闻失败: HTTPSConnectionPool(host='rsshub.app', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:14:59,767 - news_analyzer.collectors.rss - INFO - 从 财新网 获取了 0 条新闻
+2025-11-27 11:15:01,704 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 11:15:01,704 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 11:15:04,530 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 11:15:04,531 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 11:15:08,870 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 11:15:08,872 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 11:15:11,782 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 19 条新闻
+2025-11-27 11:15:11,782 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 19 条新闻
+2025-11-27 11:15:14,340 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 61 条新闻
+2025-11-27 11:15:14,342 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 61 条新闻
+2025-11-27 11:15:16,183 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 11:15:16,183 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 11:15:18,874 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 11:15:18,875 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 11:15:25,180 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 11:15:25,182 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 11:15:27,187 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 11:15:27,188 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 11:15:29,756 - news_analyzer.collectors.rss - ERROR - 获取 Scientific American 的新闻失败: 404 Client Error: Not Found for url: https://www.scientificamerican.com/feed/
+2025-11-27 11:15:29,756 - news_analyzer.collectors.rss - INFO - 从 Scientific American 获取了 0 条新闻
+2025-11-27 11:15:34,747 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 11:15:34,748 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 11:15:37,482 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 43 条新闻
+2025-11-27 11:15:37,482 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 43 条新闻
+2025-11-27 11:15:39,109 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 11:15:39,109 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 11:15:43,440 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 11:15:43,441 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 11:15:48,561 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 11:15:48,561 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 11:15:53,078 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 11:15:53,080 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 11:15:56,703 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 11:15:56,704 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 11:16:00,924 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 11:16:00,925 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 11:16:06,771 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 11:16:06,772 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 11:16:09,368 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 108 条新闻
+2025-11-27 11:16:09,369 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 108 条新闻
+2025-11-27 11:16:12,625 - news_analyzer.collectors.org - INFO - 从 世界银行新闻 获取了 0 条新闻
+2025-11-27 11:16:20,247 - news_analyzer.collectors.org - INFO - 从 IMF新闻 获取了 1 条新闻
+2025-11-27 11:16:22,181 - news_analyzer.collectors.org - ERROR - 获取 OECD新闻室 的新闻失败: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/
+2025-11-27 11:16:24,110 - news_analyzer.collectors.org - INFO - 从 WTO新闻 获取了 2 条新闻
+2025-11-27 11:16:27,243 - news_analyzer.collectors.org - INFO - 从 UNCTAD新闻 获取了 10 条新闻
+2025-11-27 11:16:30,225 - news_analyzer.collectors.org - ERROR - 获取 ITU新闻 的新闻失败: 500 Server Error: Internal Server Error for url: https://news.itu.int/
+2025-11-27 11:16:30,226 - news_analyzer.collectors.org - WARNING - 缺少 News API 密钥（环境变量 NEWS_API_KEY），已跳过
+2025-11-27 11:16:30,228 - news_analyzer.collectors.org - INFO - 从 News API - AI 热点 获取了 0 条新闻
+2025-11-27 11:16:30,494 - news_analyzer.storage - INFO - 保存了 1484 条新闻到批次 news_20251127_111630.json
+2025-11-27 11:16:30,496 - news_analyzer.storage - INFO - 从批次 news_20251127_111630.json 加载了 123 条新闻
+2025-11-27 11:16:30,531 - news_analyzer.ui.main_window - INFO - 已刷新新闻，获取了 1484 条
+2025-11-27 11:17:19,668 - news_analyzer.ui.main_window - INFO - 应用程序关闭
+2025-11-27 11:25:14,600 - news_analyzer - INFO - 新闻聚合与分析系统启动
+2025-11-27 11:25:14,677 - news_analyzer.storage - INFO - 已连接 PostgreSQL 数据库 database，使用批次方式存储新闻
+2025-11-27 11:25:14,677 - news_analyzer.collectors.rss - INFO - 添加RSS源: 澎湃新闻 (https://www.thepaper.cn/rss_newslist.jsp), 分类: 综合新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 路透中文网 (https://rsshub.rssforever.com/reuters/cn/china), 分类: 综合新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 联合早报 (https://www.zaobao.com/rss/realtime/china), 分类: 综合新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: FT中文网 (https://www.ftchinese.com/rss/feed), 分类: 综合新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报国际 (https://rss.nytimes.com/services/xml/rss/nyt/World.xml), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华盛顿邮报国际 (https://feeds.washingtonpost.com/rss/world), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报国际 (https://www.theguardian.com/world/rss), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 半岛电视台 (https://www.aljazeera.com/xml/rss/all.xml), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC国际 (https://feeds.bbci.co.uk/news/world/rss.xml), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNN国际 (http://rss.cnn.com/rss/edition_world.rss), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: NHK国际 (https://www.nhk.or.jp/rss/news/cat6.xml), 分类: 国际新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: WIRED (https://www.wired.com/feed/rss), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Engadget (https://www.engadget.com/rss.xml), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Verge (https://www.theverge.com/rss/index.xml), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: TechCrunch (https://techcrunch.com/feed/), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Ars Technica (https://feeds.arstechnica.com/arstechnica/index), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Solidot (https://www.solidot.org/index.rss), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪 (https://rsshub.rssforever.com/36kr/news/latest), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 少数派 (https://sspai.com/feed), 分类: 科技新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 经济学人 (https://www.economist.com/finance-and-economics/rss.xml), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华尔街日报市场 (https://feeds.a.dj.com/rss/RSSMarketsMain.xml), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 金融时报 (https://www.ft.com/rss/home/uk), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 福布斯商业 (https://www.forbes.com/business/feed/), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 商业内幕 (https://www.businessinsider.com/rss), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNBC财经 (https://www.cnbc.com/id/10001147/device/rss/rss.html), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 财新网 (https://rsshub.app/caixin/finance/regulation), 分类: 商业与金融
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Politico (https://rss.politico.com/politics.xml), 分类: 政治新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: RealClearPolitics (https://www.realclearpolitics.com/index.xml), 分类: 政治新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Hill (https://thehill.com/feed), 分类: 政治新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: NBC政治 (https://feeds.nbcnews.com/nbcnews/public/politics), 分类: 政治新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC政治 (https://feeds.bbci.co.uk/news/politics/rss.xml), 分类: 政治新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Science (https://www.science.org/rss/news_current.xml), 分类: 科学新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Nature (https://www.nature.com/nature.rss), 分类: 科学新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: New Scientist (https://feeds.newscientist.com/science-news), 分类: 科学新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Phys.org (https://phys.org/rss-feed/), 分类: 科学新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Scientific American (https://www.scientificamerican.com/feed/), 分类: 科学新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Space.com (https://www.space.com/feeds/all), 分类: 科学新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: ESPN (https://www.espn.com/espn/rss/news), 分类: 体育新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Sky Sports (https://www.skysports.com/rss/12040), 分类: 体育新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报体育 (http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml), 分类: 体育新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: Fox Sports (https://api.foxsports.com/v1/rss?partnerKey=zBaFxRyGKCfxBagJG9b8pqLyndmvo7UU), 分类: 体育新闻
+2025-11-27 11:25:14,678 - news_analyzer.collectors.rss - INFO - 添加RSS源: CBS Sports (https://www.cbssports.com/rss/headlines), 分类: 体育新闻
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报体育 (https://www.theguardian.com/sport/rss), 分类: 体育新闻
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 好莱坞记者 (https://www.hollywoodreporter.com/feed/), 分类: 娱乐新闻
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: Variety (https://variety.com/feed/), 分类: 娱乐新闻
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 知乎每日精选 (https://www.zhihu.com/rss), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 阮一峰的网络日志 (https://www.ruanyifeng.com/blog/atom.xml), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - WARNING - RSS源已存在: https://sspai.com/feed
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 美团技术团队 (https://tech.meituan.com/feed), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: V2EX (https://www.v2ex.com/index.xml), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 酷壳 (http://coolshell.cn/feed), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 爱范儿 (https://www.ifanr.com/feed), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 机核 (https://www.gcores.com/rss), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - WARNING - RSS源已存在: https://www.solidot.org/index.rss
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 极客公园 (http://www.geekpark.net/rss), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: IT之家 (https://www.ithome.com/rss/), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪（官方） (https://36kr.com/feed), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家发改委-政府信息公开 (https://rsshub.rssforever.com/gov/ndrc/zfxxgk), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 中国政府网-最新政策 (https://rsshub.rssforever.com/gov/zhengce/zuixin), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 工信部-政策解读 (https://rsshub.rssforever.com/gov/miit/zcjd), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家发改委-新闻动态 (https://rsshub.rssforever.com/gov/ndrc/xwdt), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 外交部-新闻动态 (https://rsshub.rssforever.com/gov/fmprc/wjdt), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: 中国新闻网-即时 (https://www.chinanews.com.cn/rss/scroll-news.xml), 分类: 中文优质
+2025-11-27 11:25:14,679 - news_analyzer.collectors.rss - INFO - 添加RSS源: Google 新闻 - AI (https://news.google.com/rss/search?q=AI&hl=zh-CN&gl=CN), 分类: 聚合新闻
+2025-11-27 11:25:14,679 - news_analyzer - INFO - 已初始化 64 个预设新闻源
+2025-11-27 11:25:14,999 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:25:15,185 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:25:15,409 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:25:15,414 - news_analyzer.ui.history_panel - INFO - 历史新闻目录: /Users/tonglion/PycharmProjects/news_analyzer-main/news_analyzer/ui/../../data/news
+2025-11-27 11:25:15,559 - news_analyzer.ui.main_window - INFO - 同步了 11 个分类到侧边栏
+2025-11-27 11:25:15,578 - news_analyzer.storage - INFO - 从批次 news_20251127_111630.json 加载了 123 条新闻
+2025-11-27 11:25:15,581 - news_analyzer.ui.main_window - INFO - 启动加载历史新闻 123 条
+2025-11-27 11:25:15,581 - news_analyzer.ui.main_window - INFO - 主窗口已初始化
+2025-11-27 11:25:18,157 - news_analyzer.collectors.rss - WARNING - 澎湃新闻 返回非RSS内容（Content-Type: text/html; charset=utf-8），已跳过解析
+2025-11-27 11:25:18,158 - news_analyzer.collectors.rss - INFO - 从 澎湃新闻 获取了 0 条新闻
+2025-11-27 11:25:22,353 - news_analyzer.collectors.rss - ERROR - 获取 路透中文网 的新闻失败: 503 Server Error: Service Unavailable for url: https://rsshub.rssforever.com/reuters/cn/china
+2025-11-27 11:25:22,353 - news_analyzer.collectors.rss - INFO - 从 路透中文网 获取了 0 条新闻
+2025-11-27 11:25:23,212 - news_analyzer.collectors.rss - WARNING - 联合早报 返回非RSS内容（Content-Type: text/html），已跳过解析
+2025-11-27 11:25:23,212 - news_analyzer.collectors.rss - INFO - 从 联合早报 获取了 0 条新闻
+2025-11-27 11:25:26,334 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 20 条新闻
+2025-11-27 11:25:26,335 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 20 条新闻
+2025-11-27 11:25:31,489 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 11:25:31,490 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 11:25:42,320 - news_analyzer.collectors.rss - INFO - 从 华盛顿邮报国际 获取了 18 条新闻
+2025-11-27 11:25:42,321 - news_analyzer.collectors.rss - INFO - 从 华盛顿邮报国际 获取了 18 条新闻
+2025-11-27 11:25:44,277 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 11:25:44,277 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 11:25:45,564 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 11:25:45,564 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 11:25:47,163 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 39 条新闻
+2025-11-27 11:25:47,164 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 39 条新闻
+2025-11-27 11:25:49,600 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 11:25:49,600 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 11:25:54,217 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 130 条新闻
+2025-11-27 11:25:54,217 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 130 条新闻
+2025-11-27 11:25:56,636 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 11:25:56,637 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 11:26:08,619 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 11:26:08,621 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 11:26:13,663 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 11:26:13,663 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 11:26:15,576 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 11:26:15,577 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 11:26:17,152 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 11:26:17,152 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 11:26:17,359 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 11:26:17,360 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 11:26:30,054 - news_analyzer.collectors.rss - ERROR - 获取 36氪 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:26:30,056 - news_analyzer.collectors.rss - INFO - 从 36氪 获取了 0 条新闻
+2025-11-27 11:26:30,262 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 11:26:30,262 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 11:26:35,270 - news_analyzer.collectors.rss - ERROR - 获取 经济学人 的新闻失败: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+2025-11-27 11:26:35,271 - news_analyzer.collectors.rss - INFO - 从 经济学人 获取了 0 条新闻
+2025-11-27 11:26:37,023 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 11:26:37,023 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 11:26:39,220 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 12 条新闻
+2025-11-27 11:26:39,220 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 12 条新闻
+2025-11-27 11:26:40,623 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 11:26:40,624 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 11:26:46,227 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 11:26:46,227 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 11:26:48,019 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 11:26:48,019 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 11:26:59,606 - news_analyzer.collectors.rss - ERROR - 获取 财新网 的新闻失败: HTTPSConnectionPool(host='rsshub.app', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:26:59,608 - news_analyzer.collectors.rss - INFO - 从 财新网 获取了 0 条新闻
+2025-11-27 11:27:00,973 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 11:27:00,973 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 11:27:02,764 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 11:27:02,765 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 11:27:12,714 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 11:27:12,716 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 11:27:14,585 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 19 条新闻
+2025-11-27 11:27:14,585 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 19 条新闻
+2025-11-27 11:27:16,378 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 61 条新闻
+2025-11-27 11:27:16,378 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 61 条新闻
+2025-11-27 11:27:18,412 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 11:27:18,413 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 11:27:20,674 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 11:27:20,675 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 11:27:25,092 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 11:27:25,093 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 11:27:26,905 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 11:27:26,907 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 11:27:30,822 - news_analyzer.collectors.rss - ERROR - 获取 Scientific American 的新闻失败: 404 Client Error: Not Found for url: https://www.scientificamerican.com/feed/
+2025-11-27 11:27:30,823 - news_analyzer.collectors.rss - INFO - 从 Scientific American 获取了 0 条新闻
+2025-11-27 11:27:34,563 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 11:27:34,564 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 11:27:36,345 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 43 条新闻
+2025-11-27 11:27:36,345 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 43 条新闻
+2025-11-27 11:27:38,163 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 11:27:38,164 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 11:27:40,539 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 11:27:40,539 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 11:27:42,972 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 11:27:42,973 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 11:27:44,974 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 11:27:44,975 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 11:27:47,227 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 11:27:47,227 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 11:27:51,976 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 11:27:51,977 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 11:27:53,964 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 11:27:53,965 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 11:27:54,100 - news_analyzer.collectors.rss - INFO - 从 知乎每日精选 获取了 0 条新闻
+2025-11-27 11:27:54,101 - news_analyzer.collectors.rss - INFO - 从 知乎每日精选 获取了 0 条新闻
+2025-11-27 11:27:55,931 - news_analyzer.collectors.rss - INFO - 从 阮一峰的网络日志 获取了 3 条新闻
+2025-11-27 11:27:55,932 - news_analyzer.collectors.rss - INFO - 从 阮一峰的网络日志 获取了 3 条新闻
+2025-11-27 11:27:56,098 - news_analyzer.collectors.rss - INFO - 从 美团技术团队 获取了 10 条新闻
+2025-11-27 11:27:56,098 - news_analyzer.collectors.rss - INFO - 从 美团技术团队 获取了 10 条新闻
+2025-11-27 11:27:58,419 - news_analyzer.collectors.rss - INFO - 从 V2EX 获取了 50 条新闻
+2025-11-27 11:27:58,419 - news_analyzer.collectors.rss - INFO - 从 V2EX 获取了 50 条新闻
+2025-11-27 11:28:00,301 - news_analyzer.collectors.rss - INFO - 从 酷壳 获取了 15 条新闻
+2025-11-27 11:28:00,301 - news_analyzer.collectors.rss - INFO - 从 酷壳 获取了 15 条新闻
+2025-11-27 11:28:00,822 - news_analyzer.collectors.rss - INFO - 从 爱范儿 获取了 20 条新闻
+2025-11-27 11:28:00,822 - news_analyzer.collectors.rss - INFO - 从 爱范儿 获取了 20 条新闻
+2025-11-27 11:28:01,064 - news_analyzer.collectors.rss - INFO - 从 机核 获取了 20 条新闻
+2025-11-27 11:28:01,065 - news_analyzer.collectors.rss - INFO - 从 机核 获取了 20 条新闻
+2025-11-27 11:28:01,161 - news_analyzer.collectors.rss - ERROR - 获取 极客公园 的新闻失败: 503 Server Error: Service Temporarily Unavailable for url: http://www.geekpark.net/rss
+2025-11-27 11:28:01,161 - news_analyzer.collectors.rss - INFO - 从 极客公园 获取了 0 条新闻
+2025-11-27 11:28:01,387 - news_analyzer.collectors.rss - INFO - 从 IT之家 获取了 60 条新闻
+2025-11-27 11:28:01,388 - news_analyzer.collectors.rss - INFO - 从 IT之家 获取了 60 条新闻
+2025-11-27 11:28:01,907 - news_analyzer.collectors.rss - INFO - 从 36氪（官方） 获取了 30 条新闻
+2025-11-27 11:28:01,907 - news_analyzer.collectors.rss - INFO - 从 36氪（官方） 获取了 30 条新闻
+2025-11-27 11:28:08,790 - news_analyzer.collectors.rss - INFO - 从 国家发改委-政府信息公开 获取了 15 条新闻
+2025-11-27 11:28:08,791 - news_analyzer.collectors.rss - INFO - 从 国家发改委-政府信息公开 获取了 15 条新闻
+2025-11-27 11:28:10,248 - news_analyzer.collectors.rss - INFO - 从 中国政府网-最新政策 获取了 20 条新闻
+2025-11-27 11:28:10,250 - news_analyzer.collectors.rss - INFO - 从 中国政府网-最新政策 获取了 20 条新闻
+2025-11-27 11:28:15,641 - news_analyzer.collectors.rss - INFO - 从 工信部-政策解读 获取了 24 条新闻
+2025-11-27 11:28:15,641 - news_analyzer.collectors.rss - INFO - 从 工信部-政策解读 获取了 24 条新闻
+2025-11-27 11:28:25,687 - news_analyzer.collectors.rss - INFO - 从 国家发改委-新闻动态 获取了 25 条新闻
+2025-11-27 11:28:25,688 - news_analyzer.collectors.rss - INFO - 从 国家发改委-新闻动态 获取了 25 条新闻
+2025-11-27 11:28:31,460 - news_analyzer.collectors.rss - ERROR - 获取 外交部-新闻动态 的新闻失败: 503 Server Error: Service Unavailable for url: https://rsshub.rssforever.com/gov/fmprc/wjdt
+2025-11-27 11:28:31,462 - news_analyzer.collectors.rss - INFO - 从 外交部-新闻动态 获取了 0 条新闻
+2025-11-27 11:28:31,905 - news_analyzer.collectors.rss - INFO - 从 中国新闻网-即时 获取了 30 条新闻
+2025-11-27 11:28:31,907 - news_analyzer.collectors.rss - INFO - 从 中国新闻网-即时 获取了 30 条新闻
+2025-11-27 11:28:35,136 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 108 条新闻
+2025-11-27 11:28:35,137 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 108 条新闻
+2025-11-27 11:28:37,021 - news_analyzer.collectors.org - ERROR - 获取 世界银行新闻 的新闻失败: 500 Server Error: Internal Server Error for url: https://search.worldbank.org/api/v2/news?format=json&rows=30&language=English
+2025-11-27 11:28:42,365 - news_analyzer.collectors.org - INFO - 从 IMF新闻 获取了 1 条新闻
+2025-11-27 11:28:44,128 - news_analyzer.collectors.org - ERROR - 获取 OECD新闻室 的新闻失败: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/
+2025-11-27 11:28:45,733 - news_analyzer.collectors.org - INFO - 从 WTO新闻 获取了 2 条新闻
+2025-11-27 11:28:48,172 - news_analyzer.collectors.org - INFO - 从 UNCTAD新闻 获取了 10 条新闻
+2025-11-27 11:28:50,561 - news_analyzer.collectors.org - ERROR - 获取 ITU新闻 的新闻失败: 500 Server Error: Internal Server Error for url: https://news.itu.int/
+2025-11-27 11:28:52,373 - news_analyzer.collectors.org - ERROR - 获取 News API - AI 热点 的新闻失败: 401 Client Error: Unauthorized for url: https://newsapi.org/v2/top-headlines
+2025-11-27 11:28:52,641 - news_analyzer.storage - INFO - 保存了 1795 条新闻到批次 news_20251127_112852.json
+2025-11-27 11:28:52,646 - news_analyzer.storage - INFO - 从批次 news_20251127_112852.json 加载了 337 条新闻
+2025-11-27 11:28:52,676 - news_analyzer.ui.main_window - INFO - 已刷新新闻，获取了 1795 条
+2025-11-27 11:49:01,338 - news_analyzer - INFO - 新闻聚合与分析系统启动
+2025-11-27 11:49:01,413 - news_analyzer.storage - INFO - 已连接 PostgreSQL 数据库 database，使用批次方式存储新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 澎湃新闻 (https://www.thepaper.cn/rss_newslist.jsp), 分类: 综合新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 路透中文网 (https://rsshub.rssforever.com/reuters/cn/china), 分类: 综合新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 联合早报 (https://www.zaobao.com/rss/realtime/china), 分类: 综合新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: FT中文网 (https://www.ftchinese.com/rss/feed), 分类: 综合新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报国际 (https://rss.nytimes.com/services/xml/rss/nyt/World.xml), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华盛顿邮报国际 (https://feeds.washingtonpost.com/rss/world), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报国际 (https://www.theguardian.com/world/rss), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 半岛电视台 (https://www.aljazeera.com/xml/rss/all.xml), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC国际 (https://feeds.bbci.co.uk/news/world/rss.xml), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNN国际 (http://rss.cnn.com/rss/edition_world.rss), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: NHK国际 (https://www.nhk.or.jp/rss/news/cat6.xml), 分类: 国际新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: WIRED (https://www.wired.com/feed/rss), 分类: 科技新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: Engadget (https://www.engadget.com/rss.xml), 分类: 科技新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Verge (https://www.theverge.com/rss/index.xml), 分类: 科技新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: TechCrunch (https://techcrunch.com/feed/), 分类: 科技新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: Ars Technica (https://feeds.arstechnica.com/arstechnica/index), 分类: 科技新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: Solidot (https://www.solidot.org/index.rss), 分类: 科技新闻
+2025-11-27 11:49:01,413 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪 (https://rsshub.rssforever.com/36kr/news/latest), 分类: 科技新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 少数派 (https://sspai.com/feed), 分类: 科技新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 经济学人 (https://www.economist.com/finance-and-economics/rss.xml), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华尔街日报市场 (https://feeds.a.dj.com/rss/RSSMarketsMain.xml), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 金融时报 (https://www.ft.com/rss/home/uk), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 福布斯商业 (https://www.forbes.com/business/feed/), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 商业内幕 (https://www.businessinsider.com/rss), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNBC财经 (https://www.cnbc.com/id/10001147/device/rss/rss.html), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 财新网 (https://rsshub.app/caixin/finance/regulation), 分类: 商业与金融
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Politico (https://rss.politico.com/politics.xml), 分类: 政治新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: RealClearPolitics (https://www.realclearpolitics.com/index.xml), 分类: 政治新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Hill (https://thehill.com/feed), 分类: 政治新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: NBC政治 (https://feeds.nbcnews.com/nbcnews/public/politics), 分类: 政治新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC政治 (https://feeds.bbci.co.uk/news/politics/rss.xml), 分类: 政治新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Science (https://www.science.org/rss/news_current.xml), 分类: 科学新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Nature (https://www.nature.com/nature.rss), 分类: 科学新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: New Scientist (https://feeds.newscientist.com/science-news), 分类: 科学新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Phys.org (https://phys.org/rss-feed/), 分类: 科学新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Scientific American (https://www.scientificamerican.com/feed/), 分类: 科学新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Space.com (https://www.space.com/feeds/all), 分类: 科学新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: ESPN (https://www.espn.com/espn/rss/news), 分类: 体育新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Sky Sports (https://www.skysports.com/rss/12040), 分类: 体育新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报体育 (http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml), 分类: 体育新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Fox Sports (https://api.foxsports.com/v1/rss?partnerKey=zBaFxRyGKCfxBagJG9b8pqLyndmvo7UU), 分类: 体育新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: CBS Sports (https://www.cbssports.com/rss/headlines), 分类: 体育新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报体育 (https://www.theguardian.com/sport/rss), 分类: 体育新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 好莱坞记者 (https://www.hollywoodreporter.com/feed/), 分类: 娱乐新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: Variety (https://variety.com/feed/), 分类: 娱乐新闻
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 知乎每日精选 (https://www.zhihu.com/rss), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 阮一峰的网络日志 (https://www.ruanyifeng.com/blog/atom.xml), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - WARNING - RSS源已存在: https://sspai.com/feed
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 美团技术团队 (https://tech.meituan.com/feed), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: V2EX (https://www.v2ex.com/index.xml), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 酷壳 (http://coolshell.cn/feed), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 爱范儿 (https://www.ifanr.com/feed), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 机核 (https://www.gcores.com/rss), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - WARNING - RSS源已存在: https://www.solidot.org/index.rss
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 极客公园 (http://www.geekpark.net/rss), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: IT之家 (https://www.ithome.com/rss/), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪（官方） (https://36kr.com/feed), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家发改委-政府信息公开 (https://rsshub.rssforever.com/gov/ndrc/zfxxgk), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 中国政府网-最新政策 (https://rsshub.rssforever.com/gov/zhengce/zuixin), 分类: 中文优质
+2025-11-27 11:49:01,414 - news_analyzer.collectors.rss - INFO - 添加RSS源: 工信部-政策解读 (https://rsshub.rssforever.com/gov/miit/zcjd), 分类: 中文优质
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家发改委-新闻动态 (https://rsshub.rssforever.com/gov/ndrc/xwdt), 分类: 中文优质
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 外交部-业务动态 (https://rsshub.rssforever.com/gov/fmprc/sjxw), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 中国新闻网-即时 (https://www.chinanews.com.cn/rss/scroll-news.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家统计局-最新发布 (https://www.stats.gov.cn/sj/zxfb/rss.xml), 分类: 官方发布
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家统计局-数据解读 (https://www.stats.gov.cn/sj/sjjd/rss.xml), 分类: 官方发布
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-时政频道 (http://www.xinhuanet.com/politics/news_politics.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-国际频道 (http://www.xinhuanet.com/world/news_world.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-地方联播 (http://www.xinhuanet.com/local/news_province.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-军事频道 (http://www.xinhuanet.com/mil/news_mil.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-华人频道 (http://www.xinhuanet.com/overseas/news_overseas.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-金融频道 (http://www.xinhuanet.com/finance/news_finance.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-财经频道 (http://www.xinhuanet.com/fortune/news_fortune.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - World (http://www.xinhuanet.com/english/rss/worldrss.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - China (http://www.xinhuanet.com/english/rss/chinarss.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - Business (http://www.xinhuanet.com/english/rss/businessrss.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - Sci/Tech (http://www.xinhuanet.com/english/rss/scirss.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - New China (http://www.xinhuanet.com/english/rss/newchina.xml), 分类: 官方新闻
+2025-11-27 11:49:01,415 - news_analyzer.collectors.rss - INFO - 添加RSS源: Google 新闻 - AI (https://news.google.com/rss/search?q=AI&hl=zh-CN&gl=CN), 分类: 聚合新闻
+2025-11-27 11:49:01,415 - news_analyzer - INFO - 已初始化 78 个预设新闻源
+2025-11-27 11:49:01,676 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:49:01,827 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:49:02,025 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 11:49:02,029 - news_analyzer.ui.history_panel - INFO - 历史新闻目录: /Users/tonglion/PycharmProjects/news_analyzer-main/news_analyzer/ui/../../data/news
+2025-11-27 11:49:02,147 - news_analyzer.ui.main_window - INFO - 同步了 13 个分类到侧边栏
+2025-11-27 11:49:02,185 - news_analyzer.storage - INFO - 从批次 news_20251127_112852.json 加载了 337 条新闻
+2025-11-27 11:49:02,193 - news_analyzer.ui.main_window - INFO - 启动加载历史新闻 337 条
+2025-11-27 11:49:02,193 - news_analyzer.ui.main_window - INFO - 主窗口已初始化
+2025-11-27 11:49:05,361 - news_analyzer.collectors.rss - WARNING - 澎湃新闻 返回非RSS内容（Content-Type: text/html; charset=utf-8），已跳过解析
+2025-11-27 11:49:05,361 - news_analyzer.collectors.rss - INFO - 从 澎湃新闻 获取了 0 条新闻
+2025-11-27 11:49:10,661 - news_analyzer.collectors.rss - ERROR - 获取 路透中文网 的新闻失败: 503 Server Error: Service Unavailable for url: https://rsshub.rssforever.com/reuters/cn/china
+2025-11-27 11:49:10,662 - news_analyzer.collectors.rss - INFO - 从 路透中文网 获取了 0 条新闻
+2025-11-27 11:49:11,456 - news_analyzer.collectors.rss - WARNING - 联合早报 返回非RSS内容（Content-Type: text/html），已跳过解析
+2025-11-27 11:49:11,457 - news_analyzer.collectors.rss - INFO - 从 联合早报 获取了 0 条新闻
+2025-11-27 11:49:14,205 - news_analyzer.collectors.rss - ERROR - 获取 FT中文网 的新闻失败: 502 Server Error: Bad Gateway for url: https://www.ftchinese.com/rss/feed
+2025-11-27 11:49:14,205 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 0 条新闻
+2025-11-27 11:49:17,490 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 11:49:17,490 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 11:49:29,061 - news_analyzer.collectors.rss - ERROR - 获取 华盛顿邮报国际 的新闻失败: HTTPSConnectionPool(host='feeds.washingtonpost.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:49:29,062 - news_analyzer.collectors.rss - INFO - 从 华盛顿邮报国际 获取了 0 条新闻
+2025-11-27 11:49:30,855 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 11:49:30,855 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 11:49:32,878 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 11:49:32,878 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 11:49:34,128 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 39 条新闻
+2025-11-27 11:49:34,128 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 39 条新闻
+2025-11-27 11:49:36,155 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 11:49:36,155 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 11:49:43,243 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 130 条新闻
+2025-11-27 11:49:43,244 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 130 条新闻
+2025-11-27 11:49:45,455 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 11:49:45,456 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 11:49:49,225 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 11:49:49,225 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 11:49:51,252 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 11:49:51,253 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 11:49:54,668 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 11:49:54,668 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 11:49:56,996 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 11:49:56,996 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 11:49:57,086 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 11:49:57,087 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 11:50:09,770 - news_analyzer.collectors.rss - ERROR - 获取 36氪 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:50:09,772 - news_analyzer.collectors.rss - INFO - 从 36氪 获取了 0 条新闻
+2025-11-27 11:50:09,994 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 11:50:09,994 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 11:50:11,892 - news_analyzer.collectors.rss - INFO - 从 经济学人 获取了 300 条新闻
+2025-11-27 11:50:11,893 - news_analyzer.collectors.rss - INFO - 从 经济学人 获取了 300 条新闻
+2025-11-27 11:50:13,351 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 11:50:13,351 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 11:50:15,237 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 12 条新闻
+2025-11-27 11:50:15,237 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 12 条新闻
+2025-11-27 11:50:16,821 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 11:50:16,822 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 11:50:20,636 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 11:50:20,637 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 11:50:22,143 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 11:50:22,143 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 11:50:33,168 - news_analyzer.collectors.rss - ERROR - 获取 财新网 的新闻失败: HTTPSConnectionPool(host='rsshub.app', port=443): Read timed out. (read timeout=10)
+2025-11-27 11:50:33,169 - news_analyzer.collectors.rss - INFO - 从 财新网 获取了 0 条新闻
+2025-11-27 11:50:34,755 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 11:50:34,756 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 11:50:36,792 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 11:50:36,792 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 11:50:46,387 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 11:50:46,389 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 11:50:48,462 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 19 条新闻
+2025-11-27 11:50:48,462 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 19 条新闻
+2025-11-27 11:50:50,082 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 61 条新闻
+2025-11-27 11:50:50,082 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 61 条新闻
+2025-11-27 11:50:52,522 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 11:50:52,522 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 11:50:54,497 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 11:50:54,498 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 11:50:58,271 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 11:50:58,272 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 11:51:00,340 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 11:51:00,340 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 11:51:03,458 - news_analyzer.collectors.rss - ERROR - 获取 Scientific American 的新闻失败: 404 Client Error: Not Found for url: https://www.scientificamerican.com/feed/
+2025-11-27 11:51:03,458 - news_analyzer.collectors.rss - INFO - 从 Scientific American 获取了 0 条新闻
+2025-11-27 11:51:07,408 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 11:51:07,409 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 11:51:10,448 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 43 条新闻
+2025-11-27 11:51:10,448 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 43 条新闻
+2025-11-27 11:51:12,513 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 11:51:12,513 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 11:51:16,165 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 11:51:16,167 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 11:51:18,624 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 11:51:18,626 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 11:51:21,610 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 11:51:21,610 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 11:51:23,772 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 11:51:23,772 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 11:51:25,194 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 11:51:25,194 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 11:51:29,168 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 11:51:29,168 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 11:51:29,403 - news_analyzer.collectors.rss - INFO - 从 知乎每日精选 获取了 0 条新闻
+2025-11-27 11:51:29,403 - news_analyzer.collectors.rss - INFO - 从 知乎每日精选 获取了 0 条新闻
+2025-11-27 11:51:31,765 - news_analyzer.collectors.rss - INFO - 从 阮一峰的网络日志 获取了 3 条新闻
+2025-11-27 11:51:31,765 - news_analyzer.collectors.rss - INFO - 从 阮一峰的网络日志 获取了 3 条新闻
+2025-11-27 11:51:31,884 - news_analyzer.collectors.rss - INFO - 从 美团技术团队 获取了 10 条新闻
+2025-11-27 11:51:31,884 - news_analyzer.collectors.rss - INFO - 从 美团技术团队 获取了 10 条新闻
+2025-11-27 11:51:36,322 - news_analyzer.collectors.rss - INFO - 从 V2EX 获取了 50 条新闻
+2025-11-27 11:51:36,322 - news_analyzer.collectors.rss - INFO - 从 V2EX 获取了 50 条新闻
+2025-11-27 11:51:37,436 - news_analyzer.collectors.rss - INFO - 从 酷壳 获取了 15 条新闻
+2025-11-27 11:51:37,437 - news_analyzer.collectors.rss - INFO - 从 酷壳 获取了 15 条新闻
+2025-11-27 11:51:37,829 - news_analyzer.collectors.rss - INFO - 从 爱范儿 获取了 20 条新闻
+2025-11-27 11:51:37,829 - news_analyzer.collectors.rss - INFO - 从 爱范儿 获取了 20 条新闻
+2025-11-27 11:51:37,994 - news_analyzer.collectors.rss - INFO - 从 机核 获取了 20 条新闻
+2025-11-27 11:51:37,994 - news_analyzer.collectors.rss - INFO - 从 机核 获取了 20 条新闻
+2025-11-27 11:51:38,016 - news_analyzer.collectors.rss - ERROR - 获取 极客公园 的新闻失败: 503 Server Error: Service Temporarily Unavailable for url: http://www.geekpark.net/rss
+2025-11-27 11:51:38,016 - news_analyzer.collectors.rss - INFO - 从 极客公园 获取了 0 条新闻
+2025-11-27 11:51:38,164 - news_analyzer.collectors.rss - INFO - 从 IT之家 获取了 60 条新闻
+2025-11-27 11:51:38,164 - news_analyzer.collectors.rss - INFO - 从 IT之家 获取了 60 条新闻
+2025-11-27 11:51:38,599 - news_analyzer.collectors.rss - INFO - 从 36氪（官方） 获取了 30 条新闻
+2025-11-27 11:51:38,600 - news_analyzer.collectors.rss - INFO - 从 36氪（官方） 获取了 30 条新闻
+2025-11-27 11:51:43,549 - news_analyzer.collectors.rss - INFO - 从 国家发改委-政府信息公开 获取了 15 条新闻
+2025-11-27 11:51:43,549 - news_analyzer.collectors.rss - INFO - 从 国家发改委-政府信息公开 获取了 15 条新闻
+2025-11-27 11:51:46,190 - news_analyzer.collectors.rss - INFO - 从 中国政府网-最新政策 获取了 20 条新闻
+2025-11-27 11:51:46,190 - news_analyzer.collectors.rss - INFO - 从 中国政府网-最新政策 获取了 20 条新闻
+2025-11-27 11:51:55,847 - news_analyzer.collectors.rss - INFO - 从 工信部-政策解读 获取了 24 条新闻
+2025-11-27 11:51:55,848 - news_analyzer.collectors.rss - INFO - 从 工信部-政策解读 获取了 24 条新闻
+2025-11-27 11:52:01,806 - news_analyzer.collectors.rss - INFO - 从 国家发改委-新闻动态 获取了 25 条新闻
+2025-11-27 11:52:01,806 - news_analyzer.collectors.rss - INFO - 从 国家发改委-新闻动态 获取了 25 条新闻
+2025-11-27 11:52:10,787 - news_analyzer.collectors.rss - INFO - 从 外交部-业务动态 获取了 35 条新闻
+2025-11-27 11:52:10,788 - news_analyzer.collectors.rss - INFO - 从 外交部-业务动态 获取了 35 条新闻
+2025-11-27 11:52:11,081 - news_analyzer.collectors.rss - INFO - 从 中国新闻网-即时 获取了 30 条新闻
+2025-11-27 11:52:11,081 - news_analyzer.collectors.rss - INFO - 从 中国新闻网-即时 获取了 30 条新闻
+2025-11-27 11:52:20,960 - news_analyzer.collectors.rss - INFO - 从 国家统计局-最新发布 获取了 500 条新闻
+2025-11-27 11:52:20,962 - news_analyzer.collectors.rss - INFO - 从 国家统计局-最新发布 获取了 500 条新闻
+2025-11-27 11:52:25,174 - news_analyzer.collectors.rss - INFO - 从 国家统计局-数据解读 获取了 500 条新闻
+2025-11-27 11:52:25,175 - news_analyzer.collectors.rss - INFO - 从 国家统计局-数据解读 获取了 500 条新闻
+2025-11-27 11:52:25,590 - news_analyzer.collectors.rss - INFO - 从 新华社-时政频道 获取了 300 条新闻
+2025-11-27 11:52:25,590 - news_analyzer.collectors.rss - INFO - 从 新华社-时政频道 获取了 300 条新闻
+2025-11-27 11:52:25,932 - news_analyzer.collectors.rss - INFO - 从 新华社-国际频道 获取了 300 条新闻
+2025-11-27 11:52:25,932 - news_analyzer.collectors.rss - INFO - 从 新华社-国际频道 获取了 300 条新闻
+2025-11-27 11:52:26,258 - news_analyzer.collectors.rss - INFO - 从 新华社-地方联播 获取了 300 条新闻
+2025-11-27 11:52:26,259 - news_analyzer.collectors.rss - INFO - 从 新华社-地方联播 获取了 300 条新闻
+2025-11-27 11:52:26,635 - news_analyzer.collectors.rss - INFO - 从 新华社-军事频道 获取了 300 条新闻
+2025-11-27 11:52:26,635 - news_analyzer.collectors.rss - INFO - 从 新华社-军事频道 获取了 300 条新闻
+2025-11-27 11:52:26,958 - news_analyzer.collectors.rss - INFO - 从 新华社-华人频道 获取了 300 条新闻
+2025-11-27 11:52:26,958 - news_analyzer.collectors.rss - INFO - 从 新华社-华人频道 获取了 300 条新闻
+2025-11-27 11:52:27,247 - news_analyzer.collectors.rss - INFO - 从 新华社-金融频道 获取了 300 条新闻
+2025-11-27 11:52:27,247 - news_analyzer.collectors.rss - INFO - 从 新华社-金融频道 获取了 300 条新闻
+2025-11-27 11:52:27,596 - news_analyzer.collectors.rss - INFO - 从 新华社-财经频道 获取了 300 条新闻
+2025-11-27 11:52:27,596 - news_analyzer.collectors.rss - INFO - 从 新华社-财经频道 获取了 300 条新闻
+2025-11-27 11:52:27,736 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - World 获取了 20 条新闻
+2025-11-27 11:52:27,737 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - World 获取了 20 条新闻
+2025-11-27 11:52:27,888 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - China 获取了 20 条新闻
+2025-11-27 11:52:27,888 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - China 获取了 20 条新闻
+2025-11-27 11:52:28,055 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Business 获取了 0 条新闻
+2025-11-27 11:52:28,055 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Business 获取了 0 条新闻
+2025-11-27 11:52:28,202 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Sci/Tech 获取了 0 条新闻
+2025-11-27 11:52:28,202 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Sci/Tech 获取了 0 条新闻
+2025-11-27 11:52:28,386 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - New China 获取了 0 条新闻
+2025-11-27 11:52:28,387 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - New China 获取了 0 条新闻
+2025-11-27 11:52:32,460 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 104 条新闻
+2025-11-27 11:52:32,461 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 104 条新闻
+2025-11-27 11:52:37,215 - news_analyzer.collectors.org - INFO - 从 世界银行新闻 获取了 0 条新闻
+2025-11-27 11:52:39,643 - news_analyzer.collectors.org - INFO - 从 IMF新闻 获取了 1 条新闻
+2025-11-27 11:52:41,194 - news_analyzer.collectors.org - ERROR - 获取 OECD新闻室 的新闻失败: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/
+2025-11-27 11:52:42,778 - news_analyzer.collectors.org - INFO - 从 WTO新闻 获取了 2 条新闻
+2025-11-27 11:52:45,179 - news_analyzer.collectors.org - INFO - 从 UNCTAD新闻 获取了 10 条新闻
+2025-11-27 11:52:47,217 - news_analyzer.collectors.org - ERROR - 获取 ITU新闻 的新闻失败: 500 Server Error: Internal Server Error for url: https://news.itu.int/
+2025-11-27 11:52:47,218 - news_analyzer.collectors.org - WARNING - 缺少 News API 密钥（环境变量 NEWS_API_KEY），已跳过
+2025-11-27 11:52:47,220 - news_analyzer.collectors.org - INFO - 从 News API - AI 热点 获取了 0 条新闻
+2025-11-27 11:52:47,947 - news_analyzer.storage - INFO - 保存了 5228 条新闻到批次 news_20251127_115247.json
+2025-11-27 11:52:47,962 - news_analyzer.storage - INFO - 从批次 news_20251127_115247.json 加载了 3249 条新闻
+2025-11-27 11:52:48,029 - news_analyzer.ui.main_window - INFO - 已刷新新闻，获取了 5228 条
+2025-11-27 11:56:51,780 - news_analyzer.ui.main_window - INFO - 筛选分类 '官方发布' 找到 1000 条新闻
+2025-11-27 11:56:52,475 - news_analyzer.ui.main_window - INFO - 筛选分类 '国际组织' 找到 13 条新闻
+2025-11-27 12:11:39,435 - news_analyzer - INFO - 新闻聚合与分析系统启动
+2025-11-27 12:11:39,645 - news_analyzer.storage - INFO - 已连接 PostgreSQL 数据库 database，使用批次方式存储新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 澎湃新闻 (https://www.thepaper.cn/rss_newslist.jsp), 分类: 综合新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 路透中文网 (https://rsshub.rssforever.com/reuters/cn/china), 分类: 综合新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 联合早报 (https://www.zaobao.com/rss/realtime/china), 分类: 综合新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: FT中文网 (https://www.ftchinese.com/rss/feed), 分类: 综合新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报国际 (https://rss.nytimes.com/services/xml/rss/nyt/World.xml), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华盛顿邮报国际 (https://feeds.washingtonpost.com/rss/world), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报国际 (https://www.theguardian.com/world/rss), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 半岛电视台 (https://www.aljazeera.com/xml/rss/all.xml), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC国际 (https://feeds.bbci.co.uk/news/world/rss.xml), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNN国际 (http://rss.cnn.com/rss/edition_world.rss), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: NHK国际 (https://www.nhk.or.jp/rss/news/cat6.xml), 分类: 国际新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: WIRED (https://www.wired.com/feed/rss), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: Engadget (https://www.engadget.com/rss.xml), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Verge (https://www.theverge.com/rss/index.xml), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: TechCrunch (https://techcrunch.com/feed/), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: Ars Technica (https://feeds.arstechnica.com/arstechnica/index), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: Solidot (https://www.solidot.org/index.rss), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪 (https://rsshub.rssforever.com/36kr/news/latest), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 少数派 (https://sspai.com/feed), 分类: 科技新闻
+2025-11-27 12:11:39,646 - news_analyzer.collectors.rss - INFO - 添加RSS源: 经济学人 (https://www.economist.com/finance-and-economics/rss.xml), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 华尔街日报市场 (https://feeds.a.dj.com/rss/RSSMarketsMain.xml), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 金融时报 (https://www.ft.com/rss/home/uk), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 福布斯商业 (https://www.forbes.com/business/feed/), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 商业内幕 (https://www.businessinsider.com/rss), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: CNBC财经 (https://www.cnbc.com/id/10001147/device/rss/rss.html), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 财新网 (https://rsshub.app/caixin/finance/regulation), 分类: 商业与金融
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Politico (https://rss.politico.com/politics.xml), 分类: 政治新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: RealClearPolitics (https://www.realclearpolitics.com/index.xml), 分类: 政治新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: The Hill (https://thehill.com/feed), 分类: 政治新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: NBC政治 (https://feeds.nbcnews.com/nbcnews/public/politics), 分类: 政治新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: BBC政治 (https://feeds.bbci.co.uk/news/politics/rss.xml), 分类: 政治新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Science (https://www.science.org/rss/news_current.xml), 分类: 科学新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Nature (https://www.nature.com/nature.rss), 分类: 科学新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: New Scientist (https://feeds.newscientist.com/science-news), 分类: 科学新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Phys.org (https://phys.org/rss-feed/), 分类: 科学新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Scientific American (https://www.scientificamerican.com/feed/), 分类: 科学新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Space.com (https://www.space.com/feeds/all), 分类: 科学新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: ESPN (https://www.espn.com/espn/rss/news), 分类: 体育新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Sky Sports (https://www.skysports.com/rss/12040), 分类: 体育新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 纽约时报体育 (http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml), 分类: 体育新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Fox Sports (https://api.foxsports.com/v1/rss?partnerKey=zBaFxRyGKCfxBagJG9b8pqLyndmvo7UU), 分类: 体育新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: CBS Sports (https://www.cbssports.com/rss/headlines), 分类: 体育新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 卫报体育 (https://www.theguardian.com/sport/rss), 分类: 体育新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 好莱坞记者 (https://www.hollywoodreporter.com/feed/), 分类: 娱乐新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: Variety (https://variety.com/feed/), 分类: 娱乐新闻
+2025-11-27 12:11:39,647 - news_analyzer.collectors.rss - INFO - 添加RSS源: 知乎每日精选 (https://www.zhihu.com/rss), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 阮一峰的网络日志 (https://www.ruanyifeng.com/blog/atom.xml), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - WARNING - RSS源已存在: https://sspai.com/feed
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 美团技术团队 (https://tech.meituan.com/feed), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: V2EX (https://www.v2ex.com/index.xml), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 酷壳 (http://coolshell.cn/feed), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 爱范儿 (https://www.ifanr.com/feed), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 机核 (https://www.gcores.com/rss), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - WARNING - RSS源已存在: https://www.solidot.org/index.rss
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 极客公园 (http://www.geekpark.net/rss), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: IT之家 (https://www.ithome.com/rss/), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 36氪（官方） (https://36kr.com/feed), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家发改委-政府信息公开 (https://rsshub.rssforever.com/gov/ndrc/zfxxgk), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 中国政府网-最新政策 (https://rsshub.rssforever.com/gov/zhengce/zuixin), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 工信部-政策解读 (https://rsshub.rssforever.com/gov/miit/zcjd), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家发改委-新闻动态 (https://rsshub.rssforever.com/gov/ndrc/xwdt), 分类: 中文优质
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 外交部-业务动态 (https://rsshub.rssforever.com/gov/fmprc/sjxw), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 中国新闻网-即时 (https://www.chinanews.com.cn/rss/scroll-news.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家统计局-最新发布 (https://www.stats.gov.cn/sj/zxfb/rss.xml), 分类: 官方发布
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 国家统计局-数据解读 (https://www.stats.gov.cn/sj/sjjd/rss.xml), 分类: 官方发布
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-时政频道 (http://www.xinhuanet.com/politics/news_politics.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-国际频道 (http://www.xinhuanet.com/world/news_world.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-地方联播 (http://www.xinhuanet.com/local/news_province.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-军事频道 (http://www.xinhuanet.com/mil/news_mil.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-华人频道 (http://www.xinhuanet.com/overseas/news_overseas.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-金融频道 (http://www.xinhuanet.com/finance/news_finance.xml), 分类: 官方新闻
+2025-11-27 12:11:39,648 - news_analyzer.collectors.rss - INFO - 添加RSS源: 新华社-财经频道 (http://www.xinhuanet.com/fortune/news_fortune.xml), 分类: 官方新闻
+2025-11-27 12:11:39,649 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - World (http://www.xinhuanet.com/english/rss/worldrss.xml), 分类: 官方新闻
+2025-11-27 12:11:39,649 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - China (http://www.xinhuanet.com/english/rss/chinarss.xml), 分类: 官方新闻
+2025-11-27 12:11:39,649 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - Business (http://www.xinhuanet.com/english/rss/businessrss.xml), 分类: 官方新闻
+2025-11-27 12:11:39,649 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - Sci/Tech (http://www.xinhuanet.com/english/rss/scirss.xml), 分类: 官方新闻
+2025-11-27 12:11:39,649 - news_analyzer.collectors.rss - INFO - 添加RSS源: Xinhua English - New China (http://www.xinhuanet.com/english/rss/newchina.xml), 分类: 官方新闻
+2025-11-27 12:11:39,649 - news_analyzer.collectors.rss - INFO - 添加RSS源: Google 新闻 - AI (https://news.google.com/rss/search?q=AI&hl=zh-CN&gl=CN), 分类: 聚合新闻
+2025-11-27 12:11:39,649 - news_analyzer - INFO - 已初始化 78 个预设新闻源
+2025-11-27 12:11:39,871 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 12:11:40,029 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 12:11:40,310 - news_analyzer.llm.client - INFO - 初始化LLM客户端（本地 Ollama），模型: qwen3:4b, 接口: http://localhost:11434/v1/chat/completions
+2025-11-27 12:11:40,314 - news_analyzer.ui.history_panel - INFO - 历史新闻目录: /Users/tonglion/PycharmProjects/news_analyzer-main/news_analyzer/ui/../../data/news
+2025-11-27 12:11:40,409 - news_analyzer.ui.main_window - INFO - 同步了 13 个分类到侧边栏
+2025-11-27 12:11:40,465 - news_analyzer.storage - INFO - 从批次 news_20251127_115247.json 加载了 3249 条新闻
+2025-11-27 12:11:40,528 - news_analyzer.ui.main_window - INFO - 启动加载历史新闻 2509 条
+2025-11-27 12:11:40,529 - news_analyzer.ui.main_window - INFO - 主窗口已初始化
+2025-11-27 14:18:57,428 - news_analyzer.collectors.rss - WARNING - 澎湃新闻 返回非RSS内容（Content-Type: text/html; charset=utf-8），已跳过解析
+2025-11-27 14:18:57,429 - news_analyzer.collectors.rss - INFO - 从 澎湃新闻 获取了 0 条新闻
+2025-11-27 14:19:10,180 - news_analyzer.collectors.rss - ERROR - 获取 路透中文网 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 14:19:10,180 - news_analyzer.collectors.rss - INFO - 从 路透中文网 获取了 0 条新闻
+2025-11-27 14:19:12,650 - news_analyzer.collectors.rss - WARNING - 联合早报 返回非RSS内容（Content-Type: text/html），已跳过解析
+2025-11-27 14:19:12,651 - news_analyzer.collectors.rss - INFO - 从 联合早报 获取了 0 条新闻
+2025-11-27 14:19:20,739 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 20 条新闻
+2025-11-27 14:19:20,739 - news_analyzer.collectors.rss - INFO - 从 FT中文网 获取了 20 条新闻
+2025-11-27 14:19:25,198 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 14:19:25,198 - news_analyzer.collectors.rss - INFO - 从 纽约时报国际 获取了 56 条新闻
+2025-11-27 14:19:36,460 - news_analyzer.collectors.rss - INFO - 从 华盛顿邮报国际 获取了 18 条新闻
+2025-11-27 14:19:36,461 - news_analyzer.collectors.rss - INFO - 从 华盛顿邮报国际 获取了 18 条新闻
+2025-11-27 14:19:39,940 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 14:19:39,941 - news_analyzer.collectors.rss - INFO - 从 卫报国际 获取了 45 条新闻
+2025-11-27 14:19:41,867 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 14:19:41,867 - news_analyzer.collectors.rss - INFO - 从 半岛电视台 获取了 25 条新闻
+2025-11-27 14:19:44,903 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 37 条新闻
+2025-11-27 14:19:44,904 - news_analyzer.collectors.rss - INFO - 从 BBC国际 获取了 37 条新闻
+2025-11-27 14:19:46,372 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 14:19:46,372 - news_analyzer.collectors.rss - INFO - 从 CNN国际 获取了 29 条新闻
+2025-11-27 14:19:54,059 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 131 条新闻
+2025-11-27 14:19:54,060 - news_analyzer.collectors.rss - INFO - 从 NHK国际 获取了 131 条新闻
+2025-11-27 14:19:56,535 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 14:19:56,535 - news_analyzer.collectors.rss - INFO - 从 WIRED 获取了 50 条新闻
+2025-11-27 14:20:28,267 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 14:20:28,268 - news_analyzer.collectors.rss - INFO - 从 Engadget 获取了 50 条新闻
+2025-11-27 14:20:30,984 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 14:20:30,984 - news_analyzer.collectors.rss - INFO - 从 The Verge 获取了 10 条新闻
+2025-11-27 14:20:34,822 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 14:20:34,822 - news_analyzer.collectors.rss - INFO - 从 TechCrunch 获取了 20 条新闻
+2025-11-27 14:20:39,476 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 14:20:39,476 - news_analyzer.collectors.rss - INFO - 从 Ars Technica 获取了 20 条新闻
+2025-11-27 14:20:39,885 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 14:20:39,885 - news_analyzer.collectors.rss - INFO - 从 Solidot 获取了 20 条新闻
+2025-11-27 14:20:51,946 - news_analyzer.collectors.rss - INFO - 从 36氪 获取了 30 条新闻
+2025-11-27 14:20:51,947 - news_analyzer.collectors.rss - INFO - 从 36氪 获取了 30 条新闻
+2025-11-27 14:20:52,302 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 14:20:52,302 - news_analyzer.collectors.rss - INFO - 从 少数派 获取了 10 条新闻
+2025-11-27 14:20:54,356 - news_analyzer.collectors.rss - INFO - 从 经济学人 获取了 300 条新闻
+2025-11-27 14:20:54,357 - news_analyzer.collectors.rss - INFO - 从 经济学人 获取了 300 条新闻
+2025-11-27 14:20:57,359 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 14:20:57,360 - news_analyzer.collectors.rss - INFO - 从 华尔街日报市场 获取了 20 条新闻
+2025-11-27 14:21:10,971 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 9 条新闻
+2025-11-27 14:21:10,972 - news_analyzer.collectors.rss - INFO - 从 金融时报 获取了 9 条新闻
+2025-11-27 14:21:15,592 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 14:21:15,592 - news_analyzer.collectors.rss - INFO - 从 福布斯商业 获取了 25 条新闻
+2025-11-27 14:21:31,790 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 14:21:31,792 - news_analyzer.collectors.rss - INFO - 从 商业内幕 获取了 20 条新闻
+2025-11-27 14:21:35,031 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 14:21:35,032 - news_analyzer.collectors.rss - INFO - 从 CNBC财经 获取了 30 条新闻
+2025-11-27 14:21:47,972 - news_analyzer.collectors.rss - ERROR - 获取 财新网 的新闻失败: HTTPSConnectionPool(host='rsshub.app', port=443): Read timed out. (read timeout=10)
+2025-11-27 14:21:47,974 - news_analyzer.collectors.rss - INFO - 从 财新网 获取了 0 条新闻
+2025-11-27 14:21:54,464 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 14:21:54,464 - news_analyzer.collectors.rss - INFO - 从 Politico 获取了 30 条新闻
+2025-11-27 14:22:01,657 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 14:22:01,658 - news_analyzer.collectors.rss - INFO - 从 RealClearPolitics 获取了 32 条新闻
+2025-11-27 14:22:07,448 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 14:22:07,449 - news_analyzer.collectors.rss - INFO - 从 The Hill 获取了 100 条新闻
+2025-11-27 14:22:10,353 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 21 条新闻
+2025-11-27 14:22:10,354 - news_analyzer.collectors.rss - INFO - 从 NBC政治 获取了 21 条新闻
+2025-11-27 14:22:14,149 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 60 条新闻
+2025-11-27 14:22:14,150 - news_analyzer.collectors.rss - INFO - 从 BBC政治 获取了 60 条新闻
+2025-11-27 14:22:16,008 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 14:22:16,008 - news_analyzer.collectors.rss - INFO - 从 Science 获取了 10 条新闻
+2025-11-27 14:22:21,738 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 14:22:21,739 - news_analyzer.collectors.rss - INFO - 从 Nature 获取了 75 条新闻
+2025-11-27 14:22:30,138 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 14:22:30,140 - news_analyzer.collectors.rss - INFO - 从 New Scientist 获取了 100 条新闻
+2025-11-27 14:22:32,667 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 14:22:32,668 - news_analyzer.collectors.rss - INFO - 从 Phys.org 获取了 30 条新闻
+2025-11-27 14:22:37,675 - news_analyzer.collectors.rss - ERROR - 获取 Scientific American 的新闻失败: 404 Client Error: Not Found for url: https://www.scientificamerican.com/feed/
+2025-11-27 14:22:37,676 - news_analyzer.collectors.rss - INFO - 从 Scientific American 获取了 0 条新闻
+2025-11-27 14:22:42,182 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 14:22:42,183 - news_analyzer.collectors.rss - INFO - 从 Space.com 获取了 50 条新闻
+2025-11-27 14:22:45,413 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 44 条新闻
+2025-11-27 14:22:45,414 - news_analyzer.collectors.rss - INFO - 从 ESPN 获取了 44 条新闻
+2025-11-27 14:22:47,278 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 14:22:47,278 - news_analyzer.collectors.rss - INFO - 从 Sky Sports 获取了 20 条新闻
+2025-11-27 14:22:50,889 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 14:22:50,890 - news_analyzer.collectors.rss - INFO - 从 纽约时报体育 获取了 0 条新闻
+2025-11-27 14:22:57,454 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 14:22:57,454 - news_analyzer.collectors.rss - INFO - 从 Fox Sports 获取了 30 条新闻
+2025-11-27 14:22:59,524 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 14:22:59,524 - news_analyzer.collectors.rss - INFO - 从 CBS Sports 获取了 36 条新闻
+2025-11-27 14:23:06,119 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 14:23:06,120 - news_analyzer.collectors.rss - INFO - 从 卫报体育 获取了 50 条新闻
+2025-11-27 14:23:10,173 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 14:23:10,173 - news_analyzer.collectors.rss - INFO - 从 好莱坞记者 获取了 10 条新闻
+2025-11-27 14:23:14,566 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 14:23:14,567 - news_analyzer.collectors.rss - INFO - 从 Variety 获取了 10 条新闻
+2025-11-27 14:23:14,842 - news_analyzer.collectors.rss - INFO - 从 知乎每日精选 获取了 0 条新闻
+2025-11-27 14:23:14,843 - news_analyzer.collectors.rss - INFO - 从 知乎每日精选 获取了 0 条新闻
+2025-11-27 14:23:23,305 - news_analyzer.collectors.rss - INFO - 从 阮一峰的网络日志 获取了 3 条新闻
+2025-11-27 14:23:23,306 - news_analyzer.collectors.rss - INFO - 从 阮一峰的网络日志 获取了 3 条新闻
+2025-11-27 14:23:24,288 - news_analyzer.collectors.rss - INFO - 从 美团技术团队 获取了 10 条新闻
+2025-11-27 14:23:24,288 - news_analyzer.collectors.rss - INFO - 从 美团技术团队 获取了 10 条新闻
+2025-11-27 14:23:26,392 - news_analyzer.collectors.rss - INFO - 从 V2EX 获取了 50 条新闻
+2025-11-27 14:23:26,392 - news_analyzer.collectors.rss - INFO - 从 V2EX 获取了 50 条新闻
+2025-11-27 14:23:33,003 - news_analyzer.collectors.rss - INFO - 从 酷壳 获取了 15 条新闻
+2025-11-27 14:23:33,004 - news_analyzer.collectors.rss - INFO - 从 酷壳 获取了 15 条新闻
+2025-11-27 14:23:37,415 - news_analyzer.collectors.rss - INFO - 从 爱范儿 获取了 20 条新闻
+2025-11-27 14:23:37,415 - news_analyzer.collectors.rss - INFO - 从 爱范儿 获取了 20 条新闻
+2025-11-27 14:23:37,853 - news_analyzer.collectors.rss - INFO - 从 机核 获取了 20 条新闻
+2025-11-27 14:23:37,853 - news_analyzer.collectors.rss - INFO - 从 机核 获取了 20 条新闻
+2025-11-27 14:23:38,596 - news_analyzer.collectors.rss - ERROR - 获取 极客公园 的新闻失败: 503 Server Error: Service Temporarily Unavailable for url: http://www.geekpark.net/rss
+2025-11-27 14:23:38,597 - news_analyzer.collectors.rss - INFO - 从 极客公园 获取了 0 条新闻
+2025-11-27 14:23:39,402 - news_analyzer.collectors.rss - INFO - 从 IT之家 获取了 60 条新闻
+2025-11-27 14:23:39,402 - news_analyzer.collectors.rss - INFO - 从 IT之家 获取了 60 条新闻
+2025-11-27 14:23:44,082 - news_analyzer.collectors.rss - INFO - 从 36氪（官方） 获取了 30 条新闻
+2025-11-27 14:23:44,083 - news_analyzer.collectors.rss - INFO - 从 36氪（官方） 获取了 30 条新闻
+2025-11-27 14:23:59,572 - news_analyzer.collectors.rss - ERROR - 获取 国家发改委-政府信息公开 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 14:23:59,575 - news_analyzer.collectors.rss - INFO - 从 国家发改委-政府信息公开 获取了 0 条新闻
+2025-11-27 14:24:07,718 - news_analyzer.collectors.rss - INFO - 从 中国政府网-最新政策 获取了 20 条新闻
+2025-11-27 14:24:07,719 - news_analyzer.collectors.rss - INFO - 从 中国政府网-最新政策 获取了 20 条新闻
+2025-11-27 14:24:17,724 - news_analyzer.collectors.rss - ERROR - 获取 工信部-政策解读 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 14:24:17,725 - news_analyzer.collectors.rss - INFO - 从 工信部-政策解读 获取了 0 条新闻
+2025-11-27 14:24:35,029 - news_analyzer.collectors.rss - ERROR - 获取 国家发改委-新闻动态 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 14:24:35,030 - news_analyzer.collectors.rss - INFO - 从 国家发改委-新闻动态 获取了 0 条新闻
+2025-11-27 14:24:48,110 - news_analyzer.collectors.rss - ERROR - 获取 外交部-业务动态 的新闻失败: HTTPSConnectionPool(host='rsshub.rssforever.com', port=443): Read timed out. (read timeout=10)
+2025-11-27 14:24:48,112 - news_analyzer.collectors.rss - INFO - 从 外交部-业务动态 获取了 0 条新闻
+2025-11-27 14:24:48,574 - news_analyzer.collectors.rss - INFO - 从 中国新闻网-即时 获取了 30 条新闻
+2025-11-27 14:24:48,574 - news_analyzer.collectors.rss - INFO - 从 中国新闻网-即时 获取了 30 条新闻
+2025-11-27 14:26:30,558 - news_analyzer.collectors.rss - INFO - 从 国家统计局-最新发布 获取了 500 条新闻
+2025-11-27 14:26:30,561 - news_analyzer.collectors.rss - INFO - 从 国家统计局-最新发布 获取了 500 条新闻
+2025-11-27 14:26:30,834 - news_analyzer.collectors.rss - ERROR - 获取 国家统计局-数据解读 的新闻失败: HTTPSConnectionPool(host='www.stats.gov.cn', port=443): Max retries exceeded with url: /sj/sjjd/rss.xml (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+2025-11-27 14:26:30,834 - news_analyzer.collectors.rss - INFO - 从 国家统计局-数据解读 获取了 0 条新闻
+2025-11-27 14:26:31,268 - news_analyzer.collectors.rss - INFO - 从 新华社-时政频道 获取了 300 条新闻
+2025-11-27 14:26:31,268 - news_analyzer.collectors.rss - INFO - 从 新华社-时政频道 获取了 300 条新闻
+2025-11-27 14:26:32,001 - news_analyzer.collectors.rss - INFO - 从 新华社-国际频道 获取了 300 条新闻
+2025-11-27 14:26:32,001 - news_analyzer.collectors.rss - INFO - 从 新华社-国际频道 获取了 300 条新闻
+2025-11-27 14:26:32,586 - news_analyzer.collectors.rss - INFO - 从 新华社-地方联播 获取了 300 条新闻
+2025-11-27 14:26:32,587 - news_analyzer.collectors.rss - INFO - 从 新华社-地方联播 获取了 300 条新闻
+2025-11-27 14:26:33,014 - news_analyzer.collectors.rss - INFO - 从 新华社-军事频道 获取了 300 条新闻
+2025-11-27 14:26:33,014 - news_analyzer.collectors.rss - INFO - 从 新华社-军事频道 获取了 300 条新闻
+2025-11-27 14:26:33,455 - news_analyzer.collectors.rss - INFO - 从 新华社-华人频道 获取了 300 条新闻
+2025-11-27 14:26:33,455 - news_analyzer.collectors.rss - INFO - 从 新华社-华人频道 获取了 300 条新闻
+2025-11-27 14:26:33,887 - news_analyzer.collectors.rss - INFO - 从 新华社-金融频道 获取了 300 条新闻
+2025-11-27 14:26:33,887 - news_analyzer.collectors.rss - INFO - 从 新华社-金融频道 获取了 300 条新闻
+2025-11-27 14:26:34,375 - news_analyzer.collectors.rss - INFO - 从 新华社-财经频道 获取了 300 条新闻
+2025-11-27 14:26:34,376 - news_analyzer.collectors.rss - INFO - 从 新华社-财经频道 获取了 300 条新闻
+2025-11-27 14:26:34,643 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - World 获取了 20 条新闻
+2025-11-27 14:26:34,643 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - World 获取了 20 条新闻
+2025-11-27 14:26:34,851 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - China 获取了 20 条新闻
+2025-11-27 14:26:34,851 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - China 获取了 20 条新闻
+2025-11-27 14:26:35,160 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Business 获取了 0 条新闻
+2025-11-27 14:26:35,160 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Business 获取了 0 条新闻
+2025-11-27 14:26:35,658 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Sci/Tech 获取了 0 条新闻
+2025-11-27 14:26:35,659 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - Sci/Tech 获取了 0 条新闻
+2025-11-27 14:26:35,889 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - New China 获取了 0 条新闻
+2025-11-27 14:26:35,889 - news_analyzer.collectors.rss - INFO - 从 Xinhua English - New China 获取了 0 条新闻
+2025-11-27 14:26:43,608 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 110 条新闻
+2025-11-27 14:26:43,609 - news_analyzer.collectors.rss - INFO - 从 Google 新闻 - AI 获取了 110 条新闻
+2025-11-27 14:26:46,104 - news_analyzer.collectors.org - INFO - 从 世界银行新闻 获取了 0 条新闻
+2025-11-27 14:26:50,886 - news_analyzer.collectors.org - INFO - 从 IMF新闻 获取了 1 条新闻
+2025-11-27 14:26:52,972 - news_analyzer.collectors.org - ERROR - 获取 OECD新闻室 的新闻失败: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/
+2025-11-27 14:26:57,370 - news_analyzer.collectors.org - INFO - 从 WTO新闻 获取了 2 条新闻
+2025-11-27 14:27:00,192 - news_analyzer.collectors.org - INFO - 从 UNCTAD新闻 获取了 10 条新闻
+2025-11-27 14:27:05,594 - news_analyzer.collectors.org - ERROR - 获取 ITU新闻 的新闻失败: 500 Server Error: Internal Server Error for url: https://news.itu.int/
+2025-11-27 14:27:07,640 - news_analyzer.collectors.org - INFO - 从 News API - AI 热点 获取了 10 条新闻
+2025-11-27 14:27:08,245 - news_analyzer.storage - INFO - 保存了 4304 条新闻到批次 news_20251127_142707.json
+2025-11-27 14:27:08,250 - news_analyzer.storage - INFO - 从批次 news_20251127_142707.json 加载了 286 条新闻
+2025-11-27 14:27:08,502 - news_analyzer.ui.main_window - INFO - 已刷新新闻，获取了 4712 条
+2025-11-27 14:29:05,496 - news_analyzer.ui.llm_panel - INFO - 开始关键观点分析: Dan Driscoll: Who is Trump's '...
+2025-11-27 14:31:35,546 - news_analyzer.llm.client - ERROR - 调用本地 Ollama 失败: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=150)
+2025-11-27 14:31:35,589 - news_analyzer.ui.llm_panel - ERROR - 新闻分析失败: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=150)

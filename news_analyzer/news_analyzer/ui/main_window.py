@@ -13,7 +13,7 @@ import threading
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
                             QSplitter, QAction, QMenuBar, QStatusBar, 
                             QToolBar, QMessageBox, QDialog, QLabel, 
-                            QLineEdit, QPushButton, QFormLayout, QTabWidget)
+                            QLineEdit, QPushButton, QFormLayout, QTabWidget, QDateEdit)
 from PyQt5.QtCore import Qt, QSize, QSettings, QTimer
 from PyQt5.QtGui import QIcon
 
@@ -26,6 +26,8 @@ from news_analyzer.ui.llm_settings import LLMSettingsDialog
 from news_analyzer.collectors.rss_collector import RSSCollector
 from news_analyzer.collectors.org_collector import OrgCollector
 from news_analyzer.llm.llm_client import LLMClient
+from datetime import datetime, date
+import email.utils as email_utils
 
 
 class AddSourceDialog(QDialog):
@@ -76,6 +78,39 @@ class AddSourceDialog(QDialog):
         }
 
 
+class CleanSettingsDialog(QDialog):
+    """清洗设置对话框"""
+    
+    def __init__(self, current_date=None, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("清洗设置")
+        self.setMinimumWidth(300)
+        
+        layout = QFormLayout(self)
+        
+        self.date_edit = QDateEdit(calendarPopup=True)
+        self.date_edit.setDisplayFormat("yyyy-MM-dd")
+        if current_date:
+            self.date_edit.setDate(current_date)
+        else:
+            self.date_edit.setDate(self.date_edit.minimumDate())
+        
+        layout.addRow("保留此日期及之后的新闻：", self.date_edit)
+        
+        button_layout = QHBoxLayout()
+        cancel_button = QPushButton("取消")
+        cancel_button.clicked.connect(self.reject)
+        ok_button = QPushButton("保存")
+        ok_button.setDefault(True)
+        ok_button.clicked.connect(self.accept)
+        button_layout.addWidget(cancel_button)
+        button_layout.addWidget(ok_button)
+        layout.addRow("", button_layout)
+    
+    def get_date(self):
+        return self.date_edit.date()
+
+
 class MainWindow(QMainWindow):
     """应用程序主窗口类"""
     
@@ -105,6 +140,7 @@ class MainWindow(QMainWindow):
         
         # 加载用户设置
         self._load_settings()
+        self._load_clean_settings()
         
         # 同步预设分类到侧边栏
         self._sync_categories()
@@ -278,11 +314,14 @@ class MainWindow(QMainWindow):
                 self.status_label.setText("就绪（暂无历史新闻）")
                 return
             
-            self.rss_collector.news_cache = news_items
-            self.news_list.update_news(news_items)
-            self.chat_panel.set_available_news_titles(news_items)
-            self.status_label.setText(f"已加载 {len(news_items)} 条历史新闻")
-            self.logger.info(f"启动加载历史新闻 {len(news_items)} 条")
+            filtered = self._filter_by_date(news_items)
+            
+            self.rss_collector.news_cache = filtered
+            self.org_collector.news_cache = filtered
+            self.news_list.update_news(filtered)
+            self.chat_panel.set_available_news_titles(filtered)
+            self.status_label.setText(f"已加载 {len(filtered)} 条历史新闻")
+            self.logger.info(f"启动加载历史新闻 {len(filtered)} 条")
         except Exception as e:
             self.logger.error(f"启动加载历史新闻失败: {str(e)}")
             self.status_label.setText("加载历史新闻失败")
@@ -298,6 +337,11 @@ class MainWindow(QMainWindow):
         self.refresh_action = QAction("刷新新闻", self)
         self.refresh_action.setStatusTip("获取最新新闻")
         self.refresh_action.triggered.connect(self.refresh_news)
+        
+        # 清洗设置
+        self.clean_settings_action = QAction("清洗设置", self)
+        self.clean_settings_action.setStatusTip("设置新闻保留起始日期")
+        self.clean_settings_action.triggered.connect(self.show_clean_settings)
         
         # 设置
         self.settings_action = QAction("设置", self)
@@ -332,6 +376,7 @@ class MainWindow(QMainWindow):
         tools_menu = self.menuBar().addMenu("工具")
         tools_menu.addAction(self.settings_action)
         tools_menu.addAction(self.llm_settings_action)
+        tools_menu.addAction(self.clean_settings_action)
         
         # 帮助菜单
         help_menu = self.menuBar().addMenu("帮助")
@@ -367,6 +412,15 @@ class MainWindow(QMainWindow):
         if sources:
             for source in sources:
                 self.rss_collector.add_source(source['url'], source['name'], source['category'])
+
+    def _load_clean_settings(self):
+        """加载清洗设置"""
+        settings = QSettings("NewsAnalyzer", "NewsAggregator")
+        self.clean_cutoff_str = settings.value("cleaning/date_cutoff", "2025-01-01")
+        try:
+            self.clean_cutoff = datetime.strptime(self.clean_cutoff_str, "%Y-%m-%d").date()
+        except Exception:
+            self.clean_cutoff = None
     
     def _sync_categories(self):
         """将RSS收集器中的所有分类同步到侧边栏"""
@@ -402,6 +456,10 @@ class MainWindow(QMainWindow):
                 user_sources.append(source)
         
         settings.setValue("user_rss_sources", user_sources)
+        
+        # 保存清洗日期
+        if hasattr(self, "clean_cutoff_str"):
+            settings.setValue("cleaning/date_cutoff", self.clean_cutoff_str)
     
     def _on_news_selected(self, news_item):
         """处理新闻选择事件"""
@@ -452,6 +510,55 @@ class MainWindow(QMainWindow):
                     unique[link] = item
         return list(unique.values())
     
+    def _filter_by_date(self, news_items):
+        """按清洗日期过滤新闻"""
+        if not news_items:
+            return []
+        if not getattr(self, "clean_cutoff", None):
+            return news_items
+        
+        cutoff = self.clean_cutoff
+        filtered = []
+        for item in news_items:
+            pub_date_str = item.get('pub_date') or item.get('published') or ""
+            collected_str = item.get('collected_at', "")
+            parsed_date = self._parse_date(pub_date_str) or self._parse_date(collected_str)
+            if parsed_date and parsed_date.date() >= cutoff:
+                filtered.append(item)
+        return filtered
+    
+    def _parse_date(self, date_str):
+        """解析多种日期格式"""
+        if not date_str:
+            return None
+        # 优先尝试 ISO 格式
+        for fmt in ("%Y-%m-%d", "%Y-%m-%d %H:%M:%S", "%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z"):
+            try:
+                return datetime.strptime(date_str.strip(), fmt)
+            except Exception:
+                continue
+        try:
+            return email_utils.parsedate_to_datetime(date_str)
+        except Exception:
+            return None
+    
+    def show_clean_settings(self):
+        """显示清洗设置对话框"""
+        current_date = self.clean_cutoff or date.today()
+        dlg = CleanSettingsDialog(current_date=current_date, parent=self)
+        if dlg.exec_() == QDialog.Accepted:
+            selected_date = dlg.get_date().toPyDate()
+            self.clean_cutoff = selected_date
+            self.clean_cutoff_str = selected_date.strftime("%Y-%m-%d")
+            self._save_settings()
+            # 立即应用过滤
+            filtered = self._filter_by_date(self.rss_collector.news_cache)
+            self.rss_collector.news_cache = filtered
+            self.org_collector.news_cache = filtered
+            self.news_list.update_news(filtered)
+            self.chat_panel.set_available_news_titles(filtered)
+            self.status_label.setText(f"已应用清洗截止日期: {self.clean_cutoff_str}")
+    
     def refresh_news(self, source_url=None):
         """刷新新闻
         
@@ -479,6 +586,9 @@ class MainWindow(QMainWindow):
                 count = len(rss_items) + len(org_items)
                 self.status_label.setText(f"已获取 {count} 条新闻（含国际组织）")
             
+            # 清洗：按日期过滤
+            news_items = self._filter_by_date(news_items)
+            
             # 保存到存储（数据库去重）
             batch_key = self.storage.save_news(news_items)
             
@@ -496,10 +606,12 @@ class MainWindow(QMainWindow):
             combined_news = self._merge_news(self.rss_collector.news_cache, self.org_collector.news_cache, news_items)
             
             # 更新缓存与界面
-            self.rss_collector.news_cache = combined_news
-            self.org_collector.news_cache = combined_news
-            self.news_list.update_news(combined_news)
-            self.chat_panel.set_available_news_titles(combined_news)
+            filtered_combined = self._filter_by_date(combined_news)
+            
+            self.rss_collector.news_cache = filtered_combined
+            self.org_collector.news_cache = filtered_combined
+            self.news_list.update_news(filtered_combined)
+            self.chat_panel.set_available_news_titles(filtered_combined)
             
             self.logger.info(f"已刷新新闻，获取了 {count} 条")
         except Exception as e:

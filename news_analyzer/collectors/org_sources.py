@@ -64,5 +64,16 @@ def get_org_sources():
             "priority": 1,
             "provider": "official",
             "base_url": "https://news.itu.int"
+        },
+        {
+            "id": "news_api",
+            "name": "News API - AI 热点",
+            "url": "https://newsapi.org/v2/top-headlines",
+            "category": "聚合新闻",
+            "type": "json",
+            "priority": 1,
+            "provider": "official",
+            "params": {"q": "AI", "language": "en", "pageSize": 30},
+            "api_key_env": "d4eee156357947c9bdf1a41632e71cef"
         }
     ]

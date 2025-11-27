@@ -28,7 +28,12 @@ def get_default_sources():
             "is_third_party": True
         },
         {
-            "url": "https://www.zaobao.com/rss/realtime/china",
+            "url": "https://rsshub.app/zaobao/realtime/china",
+            "name": "联合早报-即时新闻",
+            "category": "综合新闻"
+        },
+        {
+            "url": "https://rsshub.app/zaobao/znews/china",
             "name": "联合早报",
             "category": "综合新闻"
         },
@@ -149,11 +154,15 @@ def get_default_sources():
             "category": "商业与金融"
         },
         {
-            "url": "https://rsshub.app/caixin/finance/regulation",
-            "name": "财新网",
+            "url": "https://rsshub.app/caijing/roll",
+            "name": "财经网",
             "category": "商业与金融"
         },
-        
+        {
+            "url": "https://rsshub.app/nifd/research/3333d2af-91d6-429b-be83-28b92f31b6d7",
+            "name": "国家金融与发展实验室 ",
+            "category": "商业与金融"
+        },
         # 政治新闻
         {
             "url": "https://rss.politico.com/politics.xml",
@@ -255,6 +264,185 @@ def get_default_sources():
             "url": "https://variety.com/feed/",
             "name": "Variety",
             "category": "娱乐新闻"
+        },
+        
+        # 中文区优质RSS源
+        {
+            "url": "https://www.zhihu.com/rss",
+            "name": "知乎每日精选",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://www.ruanyifeng.com/blog/atom.xml",
+            "name": "阮一峰的网络日志",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://sspai.com/feed",
+            "name": "少数派",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://tech.meituan.com/feed",
+            "name": "美团技术团队",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://www.v2ex.com/index.xml",
+            "name": "V2EX",
+            "category": "中文优质"
+        },
+        {
+            "url": "http://coolshell.cn/feed",
+            "name": "酷壳",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://www.ifanr.com/feed",
+            "name": "爱范儿",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://www.gcores.com/rss",
+            "name": "机核",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://www.solidot.org/index.rss",
+            "name": "Solidot",
+            "category": "中文优质"
+        },
+        {
+            "url": "http://www.geekpark.net/rss",
+            "name": "极客公园",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://www.ithome.com/rss/",
+            "name": "IT之家",
+            "category": "中文优质"
+        },
+        {
+            "url": "https://36kr.com/feed",
+            "name": "36氪（官方）",
+            "category": "中文优质"
+        },
+        {
+            "url": f"{RSSHUB_BASE}/gov/ndrc/zfxxgk",
+            "name": "国家发改委-政府信息公开",
+            "category": "中文优质",
+            "provider": "rsshub",
+            "is_third_party": True
+        },
+        {
+            "url": f"{RSSHUB_BASE}/gov/zhengce/zuixin",
+            "name": "中国政府网-最新政策",
+            "category": "中文优质",
+            "provider": "rsshub",
+            "is_third_party": True
+        },
+        {
+            "url": f"{RSSHUB_BASE}/gov/miit/zcjd",
+            "name": "工信部-政策解读",
+            "category": "中文优质",
+            "provider": "rsshub",
+            "is_third_party": True
+        },
+        {
+            "url": f"{RSSHUB_BASE}/gov/ndrc/xwdt",
+            "name": "国家发改委-新闻动态",
+            "category": "中文优质",
+            "provider": "rsshub",
+            "is_third_party": True
+        },
+        {
+            "url": f"{RSSHUB_BASE}/gov/fmprc/sjxw",
+            "name": "外交部-业务动态",
+            "category": "官方新闻",
+            "provider": "rsshub",
+            "is_third_party": True
+        },
+        {
+            "url": "https://www.chinanews.com.cn/rss/scroll-news.xml",
+            "name": "中国新闻网-即时",
+            "category": "官方新闻"
+        },
+        {
+            "url": "https://www.stats.gov.cn/sj/zxfb/rss.xml",
+            "name": "国家统计局-最新发布",
+            "category": "官方发布"
+        },
+        {
+            "url": "https://www.stats.gov.cn/sj/sjjd/rss.xml",
+            "name": "国家统计局-数据解读",
+            "category": "官方发布"
+        },
+        {
+            "url": "http://www.xinhuanet.com/politics/news_politics.xml",
+            "name": "新华社-时政频道",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/world/news_world.xml",
+            "name": "新华社-国际频道",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/local/news_province.xml",
+            "name": "新华社-地方联播",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/mil/news_mil.xml",
+            "name": "新华社-军事频道",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/overseas/news_overseas.xml",
+            "name": "新华社-华人频道",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/finance/news_finance.xml",
+            "name": "新华社-金融频道",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/fortune/news_fortune.xml",
+            "name": "新华社-财经频道",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/english/rss/worldrss.xml",
+            "name": "Xinhua English - World",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/english/rss/chinarss.xml",
+            "name": "Xinhua English - China",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/english/rss/businessrss.xml",
+            "name": "Xinhua English - Business",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/english/rss/scirss.xml",
+            "name": "Xinhua English - Sci/Tech",
+            "category": "官方新闻"
+        },
+        {
+            "url": "http://www.xinhuanet.com/english/rss/newchina.xml",
+            "name": "Xinhua English - New China",
+            "category": "官方新闻"
+        },
+        
+        # 聚合/搜索新闻
+        {
+            "url": "https://news.google.com/rss/search?q=AI&hl=zh-CN&gl=CN",
+            "name": "Google 新闻 - AI",
+            "category": "聚合新闻"
         }
     ]
 

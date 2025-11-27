@@ -5,6 +5,7 @@
 """
 
 import logging
+import os
 import time
 from typing import List, Dict, Any
 from urllib.parse import urljoin
@@ -65,6 +66,8 @@ class OrgCollector:
             return self._fetch_unctad(source)
         if source_id == "itu":
             return self._fetch_itu(source)
+        if source_id == "news_api":
+            return self._fetch_news_api(source)
         self.logger.warning("未实现的国际组织源: %s", source_id)
         return []
 
@@ -123,6 +126,32 @@ class OrgCollector:
             container_selector="article, .post",
             link_filter="/"
         )
+
+    def _fetch_news_api(self, source: Dict[str, Any]) -> List[Dict[str, Any]]:
+        api_key_env = source.get("api_key_env", "NEWS_API_KEY")
+        api_key = os.environ.get(api_key_env)
+        if not api_key:
+            self.logger.warning("缺少 News API 密钥（环境变量 %s），已跳过", api_key_env)
+            return []
+
+        params = {"apiKey": api_key}
+        params.update(source.get("params") or {})
+
+        resp = self.session.get(source["url"], params=params, timeout=self.request_timeout)
+        resp.raise_for_status()
+        data = resp.json()
+        articles = data.get("articles") or []
+
+        items: List[Dict[str, Any]] = []
+        for entry in articles:
+            title = entry.get("title") or ""
+            link = entry.get("url") or ""
+            if not title or not link:
+                continue
+            description = entry.get("description") or entry.get("content") or ""
+            pub_date = entry.get("publishedAt") or ""
+            items.append(self._build_item(title, link, description, pub_date, source))
+        return items
 
     def _fetch_html_links(
         self,
