@@ -23,6 +23,7 @@ from news_analyzer.ui.main_window import MainWindow
 from news_analyzer.storage.news_storage import NewsStorage
 from news_analyzer.collectors.rss_collector import RSSCollector
 from news_analyzer.collectors.org_collector import OrgCollector
+from news_analyzer.collectors.mofcom_collector import MofcomCollector
 from news_analyzer.collectors.default_sources import initialize_sources
 
 
@@ -61,6 +62,7 @@ def main():
         # 初始化收集器
         rss_collector = RSSCollector()
         org_collector = OrgCollector()
+        mofcom_collector = MofcomCollector()
         
         # 添加预设新闻源
         sources_count = initialize_sources(rss_collector)
@@ -71,7 +73,7 @@ def main():
         app.setApplicationName("新闻聚合与分析系统")
         
         # 创建并显示主窗口
-        main_window = MainWindow(storage, rss_collector, org_collector)
+        main_window = MainWindow(storage, rss_collector, org_collector, mofcom_collector)
         main_window.show()
         
         # 执行应用程序事件循环

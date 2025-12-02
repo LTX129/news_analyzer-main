@@ -10,6 +10,7 @@
 import os
 import logging
 import threading
+import asyncio
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
                             QSplitter, QAction, QMenuBar, QStatusBar, 
                             QToolBar, QMessageBox, QDialog, QLabel, 
@@ -25,6 +26,7 @@ from news_analyzer.ui.chat_panel import ChatPanel
 from news_analyzer.ui.llm_settings import LLMSettingsDialog
 from news_analyzer.collectors.rss_collector import RSSCollector
 from news_analyzer.collectors.org_collector import OrgCollector
+from news_analyzer.collectors.mofcom_collector import MofcomCollector
 from news_analyzer.llm.llm_client import LLMClient
 from datetime import datetime, date
 import email.utils as email_utils
@@ -114,7 +116,7 @@ class CleanSettingsDialog(QDialog):
 class MainWindow(QMainWindow):
     """应用程序主窗口类"""
     
-    def __init__(self, storage, rss_collector=None, org_collector=None):
+    def __init__(self, storage, rss_collector=None, org_collector=None, mofcom_collector=None):
         super().__init__()
         
         self.logger = logging.getLogger('news_analyzer.ui.main_window')
@@ -124,6 +126,8 @@ class MainWindow(QMainWindow):
         self.rss_collector = rss_collector or RSSCollector()
         # 国际组织专用采集器
         self.org_collector = org_collector or OrgCollector()
+        # 商务部 Playwright 采集器
+        self.mofcom_collector = mofcom_collector or MofcomCollector()
         
         # 设置窗口属性
         self.setWindowTitle("新闻聚合与分析系统")
@@ -293,6 +297,9 @@ class MainWindow(QMainWindow):
         
         # 更新缓存
         self.rss_collector.news_cache = news_items
+        self.org_collector.news_cache = news_items
+        if hasattr(self, "mofcom_collector"):
+            self.mofcom_collector.news_cache = news_items
         
         # 更新状态栏
         self.status_label.setText(f"已加载 {len(news_items)} 条历史新闻")
@@ -318,6 +325,8 @@ class MainWindow(QMainWindow):
             
             self.rss_collector.news_cache = filtered
             self.org_collector.news_cache = filtered
+            if hasattr(self, "mofcom_collector"):
+                self.mofcom_collector.news_cache = filtered
             self.news_list.update_news(filtered)
             self.chat_panel.set_available_news_titles(filtered)
             self.status_label.setText(f"已加载 {len(filtered)} 条历史新闻")
@@ -430,6 +439,8 @@ class MainWindow(QMainWindow):
             categories.add(source['category'])
         for source in self.org_collector.get_sources():
             categories.add(source['category'])
+        if hasattr(self, "mofcom_collector"):
+            categories.add(self.mofcom_collector.category)
         
         # 添加到侧边栏
         for category in sorted(categories):
@@ -555,6 +566,8 @@ class MainWindow(QMainWindow):
             filtered = self._filter_by_date(self.rss_collector.news_cache)
             self.rss_collector.news_cache = filtered
             self.org_collector.news_cache = filtered
+            if hasattr(self, "mofcom_collector"):
+                self.mofcom_collector.news_cache = filtered
             self.news_list.update_news(filtered)
             self.chat_panel.set_available_news_titles(filtered)
             self.status_label.setText(f"已应用清洗截止日期: {self.clean_cutoff_str}")
@@ -572,7 +585,11 @@ class MainWindow(QMainWindow):
                 # 刷新特定源
                 new_items = self.rss_collector.fetch_from_source(source_url)
                 # 合并历史缓存，避免丢失旧新闻
-                existing_items = self._merge_news(self.rss_collector.news_cache, self.org_collector.news_cache)
+                existing_items = self._merge_news(
+                    self.rss_collector.news_cache,
+                    self.org_collector.news_cache,
+                    getattr(self.mofcom_collector, "news_cache", []),
+                )
                 news_items = self._merge_news(existing_items, new_items)
                 count = len(new_items)
                 self.status_label.setText(f"已获取 {count} 条新闻")
@@ -580,11 +597,27 @@ class MainWindow(QMainWindow):
                 # 刷新所有源
                 rss_items = self.rss_collector.fetch_all()
                 org_items = self.org_collector.fetch_all()
+                mofcom_items = []
+                try:
+                    mofcom_items = asyncio.run(self.mofcom_collector.fetch_all())
+                except ImportError as exc:
+                    self.logger.error("商务部采集器缺少依赖: %s", exc)
+                    QMessageBox.warning(
+                        self,
+                        "商务部采集失败",
+                        "需要安装 playwright 才能抓取商务部新闻，请运行: pip install playwright && playwright install chromium",
+                    )
+                except Exception as exc:
+                    self.logger.error("获取商务部新闻失败: %s", exc)
                 # 合并历史缓存，保留旧数据
-                existing_items = self._merge_news(self.rss_collector.news_cache, self.org_collector.news_cache)
-                news_items = self._merge_news(existing_items, rss_items, org_items)
-                count = len(rss_items) + len(org_items)
-                self.status_label.setText(f"已获取 {count} 条新闻（含国际组织）")
+                existing_items = self._merge_news(
+                    self.rss_collector.news_cache,
+                    self.org_collector.news_cache,
+                    getattr(self.mofcom_collector, "news_cache", []),
+                )
+                news_items = self._merge_news(existing_items, rss_items, org_items, mofcom_items)
+                count = len(rss_items) + len(org_items) + len(mofcom_items)
+                self.status_label.setText(f"已获取 {count} 条新闻（含国际组织/商务部）")
             
             # 清洗：按日期过滤
             news_items = self._filter_by_date(news_items)
@@ -600,16 +633,28 @@ class MainWindow(QMainWindow):
             
             if not news_items:
                 # 如果本次无新数据，保留现有缓存展示
-                news_items = self.rss_collector.news_cache or self.storage.load_news()
+                news_items = self._merge_news(
+                    self.rss_collector.news_cache,
+                    self.org_collector.news_cache,
+                    getattr(self.mofcom_collector, "news_cache", []),
+                    self.storage.load_news(),
+                )
             
             # 合并数据库返回数据与历史缓存，防止旧新闻被覆盖
-            combined_news = self._merge_news(self.rss_collector.news_cache, self.org_collector.news_cache, news_items)
+            combined_news = self._merge_news(
+                self.rss_collector.news_cache,
+                self.org_collector.news_cache,
+                getattr(self.mofcom_collector, "news_cache", []),
+                news_items,
+            )
             
             # 更新缓存与界面
             filtered_combined = self._filter_by_date(combined_news)
             
             self.rss_collector.news_cache = filtered_combined
             self.org_collector.news_cache = filtered_combined
+            if hasattr(self, "mofcom_collector"):
+                self.mofcom_collector.news_cache = filtered_combined
             self.news_list.update_news(filtered_combined)
             self.chat_panel.set_available_news_titles(filtered_combined)
             
